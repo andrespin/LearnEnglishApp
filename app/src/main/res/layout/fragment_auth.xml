@@ -2,12 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/auth_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         layout="@layout/auth_layout" />
+
+    <include
+        android:id="@+id/reg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        layout="@layout/reg_layout" />
+
+    <include
+        android:id="@+id/recover_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        layout="@layout/recover_layout" />
 
 </LinearLayout>

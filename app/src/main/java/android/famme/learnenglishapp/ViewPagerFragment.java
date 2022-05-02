@@ -21,7 +21,7 @@ public class ViewPagerFragment extends Fragment {
     // The pager adapter, which provides the pages to the view pager widget.
     private FragmentStateAdapter pagerAdapter;
     // Arrey of strings FOR TABS TITLES
-    private String[] titles = new String[]{"Tab1", "Tab2", "Tab3"};
+    private String[] titles = new String[]{"Профиль", "Темы", "Прогресс"};
     // tab titles
 
 
@@ -46,11 +46,10 @@ public class ViewPagerFragment extends Fragment {
 
         viewPager.setAdapter(pagerAdapter);
 //inflating tab layout
-        TabLayout tabLayout =( TabLayout) getActivity().findViewById(R.id.tab_layout);
+        TabLayout tabLayout = (TabLayout) getActivity().findViewById(R.id.tab_layout);
 //displaying tabs
-        new TabLayoutMediator(tabLayout, viewPager,(tab, position) -> tab.setText(titles[position])).attach();
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(titles[position])).attach();
     }
-
 
 
 }
