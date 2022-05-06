@@ -1,6 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_main_app_icon" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/pangoline"
+            android:gravity="center"
+            android:text="Learn English"
+            android:textSize="40sp" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageEnterLogin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:background="@drawable/back_entrance"
+                android:defaultFocusHighlightEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtEnterLogin"
+                android:layout_width="260dp"
+                android:layout_height="42dp"
+                android:background="@null"
+                android:textSize="@dimen/text_size"
+                android:defaultFocusHighlightEnabled="false"
+                android:fontFamily="@font/ibm_plex_sans"
+                android:hint="Введите свой логин"
+                app:layout_constraintBottom_toBottomOf="@+id/imageEnterLogin"
+                app:layout_constraintEnd_toEndOf="@+id/imageEnterLogin"
+                app:layout_constraintStart_toStartOf="@+id/imageEnterLogin"
+                app:layout_constraintTop_toTopOf="@+id/imageEnterLogin" />
+
+            <ImageButton
+                android:id="@+id/imgBtnRecover"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="30dp"
+                android:background="#00000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageEnterLogin"
+                app:srcCompat="@drawable/back_image_button_green" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="260dp"
+                android:layout_height="42dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/ibm_plex_sans"
+                android:text="Восстановить пароль"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBtnRecover"
+                app:layout_constraintEnd_toEndOf="@+id/imgBtnRecover"
+                app:layout_constraintStart_toStartOf="@+id/imgBtnRecover"
+                app:layout_constraintTop_toTopOf="@+id/imgBtnRecover" />
+
+            <ImageButton
+                android:id="@+id/imgBtnLogInAgain"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="30dp"
+                android:background="#00000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBtnRecover"
+                app:srcCompat="@drawable/back_image_button_purple" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="260dp"
+                android:layout_height="42dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/ibm_plex_sans"
+                android:text="Войти"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBtnLogInAgain"
+                app:layout_constraintEnd_toEndOf="@+id/imgBtnLogInAgain"
+                app:layout_constraintStart_toStartOf="@+id/imgBtnLogInAgain"
+                app:layout_constraintTop_toTopOf="@+id/imgBtnLogInAgain" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </TableRow>
+
+</TableLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,14 +9,14 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="0.1">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="20dp"
+            android:layout_weight="1"
             app:srcCompat="@drawable/ic_main_app_icon" />
 
     </TableRow>
@@ -40,6 +41,28 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="0.1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,23 +73,22 @@
             <ImageView
                 android:id="@+id/imageEnterLogin"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:defaultFocusHighlightEnabled="false"
-                android:background="@drawable/back_entrance"
+                android:layout_height="@dimen/field_height"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                />
+                android:background="@drawable/back_entrance"
+                android:defaultFocusHighlightEnabled="false"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/txtEnterLogin"
                 android:layout_width="260dp"
                 android:layout_height="42dp"
-                android:layout_marginLeft="40dp"
                 android:background="@null"
                 android:defaultFocusHighlightEnabled="false"
-                android:hint="Введите свой логин"
                 android:fontFamily="@font/ibm_plex_sans"
+                android:hint="Введите свой логин"
+                android:textSize="@dimen/text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/imageEnterLogin"
                 app:layout_constraintEnd_toEndOf="@+id/imageEnterLogin"
                 app:layout_constraintStart_toStartOf="@+id/imageEnterLogin"
@@ -75,61 +97,41 @@
             <ImageView
                 android:id="@+id/imageEnterPass"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="@dimen/field_height"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/back_entrance"
+                android:defaultFocusHighlightEnabled="false"
                 android:fontFamily="@font/ibm_plex_sans"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageEnterLogin"
-                android:defaultFocusHighlightEnabled="false" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/imageEnterPass"
-                app:layout_constraintEnd_toStartOf="@+id/txtEnterPass"
-                app:layout_constraintStart_toStartOf="@+id/imageEnterPass"
-                app:layout_constraintTop_toTopOf="@+id/imageEnterPass"
-                app:srcCompat="@drawable/ic_profile" />
+                app:layout_constraintTop_toBottomOf="@+id/imageEnterLogin" />
 
             <EditText
                 android:id="@+id/txtEnterPass"
                 android:layout_width="260dp"
                 android:layout_height="42dp"
-                android:layout_marginLeft="40dp"
-                android:defaultFocusHighlightEnabled="false"
                 android:background="@null"
-                android:hint="Введите свой пароль"
+                android:defaultFocusHighlightEnabled="false"
                 android:fontFamily="@font/ibm_plex_sans"
+                android:inputType="textPassword"
+                android:hint="Введите свой пароль"
+                android:textSize="@dimen/text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/imageEnterPass"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imageEnterPass" />
 
             <ImageView
-                android:id="@+id/imgWrongPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/txtEnterPass"
-                app:layout_constraintEnd_toEndOf="@+id/imageEnterLogin"
-                app:layout_constraintTop_toTopOf="@+id/txtEnterPass"
-                app:srcCompat="@drawable/ic_wrong_txt" />
-
-            <ImageView
                 android:id="@+id/imgBtnLogIn"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/back_entrance"
+                android:layout_height="@dimen/field_height"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
+                android:background="@drawable/back_entrance"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageEnterPass" />
@@ -137,11 +139,11 @@
             <ImageButton
                 android:id="@+id/imgBtnRegister"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginTop="20dp"
-                android:background="#00000000"
+                android:layout_height="@dimen/field_height"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
+                android:background="#00000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -152,63 +154,79 @@
                 android:id="@+id/txtRepeatPass"
                 android:layout_width="260dp"
                 android:layout_height="42dp"
-                android:hint="Повторите пароль"
                 android:background="@null"
-                android:textSize="18sp"
                 android:fontFamily="@font/ibm_plex_sans"
+                android:hint="Повторите пароль"
+                android:inputType="textPassword"
+                android:textSize="@dimen/text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/imgBtnLogIn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imgBtnLogIn" />
 
-
-            <!--            <EditText-->
-            <!--                android:id="@+id/txtEnterPass"-->
-            <!--                android:layout_width="260dp"-->
-            <!--                android:layout_height="42dp"-->
-            <!--                android:layout_marginLeft="40dp"-->
-            <!--                android:defaultFocusHighlightEnabled="false"-->
-            <!--                android:background="@null"-->
-            <!--                android:hint="Введите свой пароль"-->
-            <!--                android:fontFamily="@font/ibm_plex_sans"-->
-            <!--                app:layout_constraintBottom_toBottomOf="@+id/imageEnterPass"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toTopOf="@+id/imageEnterPass" />-->
-
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Регистрация"
-                android:textSize="18sp"
-                android:textColor="@color/white"
                 android:fontFamily="@font/ibm_plex_sans"
+                android:text="Зарегистрироваться"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
                 app:layout_constraintBottom_toBottomOf="@+id/imgBtnRegister"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imgBtnRegister" />
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/imageEnterLogin"
-                app:layout_constraintEnd_toStartOf="@+id/txtEnterLogin"
-                app:layout_constraintStart_toStartOf="@+id/imageEnterLogin"
-                app:layout_constraintTop_toTopOf="@+id/imageEnterLogin"
-                app:srcCompat="@drawable/ic_profile" />
 
             <ImageView
-                android:id="@+id/imgWrongLogin"
+                android:id="@+id/imgLogIn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/field_height"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:background="@null"
+                android:fontFamily="@font/ibm_plex_sans"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBtnRegister"
+                app:srcCompat="@drawable/back_image_button_purple" />
+
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/txtEnterLogin"
-                app:layout_constraintEnd_toEndOf="@+id/imageEnterLogin"
-                app:layout_constraintTop_toTopOf="@+id/txtEnterLogin"
-                app:srcCompat="@drawable/ic_wrong_txt" />
+                android:fontFamily="@font/ibm_plex_sans"
+                android:text="Войти"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/imgLogIn"
+                app:layout_constraintEnd_toEndOf="@+id/imgLogIn"
+                app:layout_constraintStart_toStartOf="@+id/imgLogIn"
+                app:layout_constraintTop_toTopOf="@+id/imgLogIn" />
+
+            <ImageView
+                android:id="@+id/imgShowHidePass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageEnterPass"
+                app:layout_constraintStart_toEndOf="@+id/txtEnterPass"
+                app:layout_constraintTop_toTopOf="@+id/imageEnterPass"
+                app:srcCompat="@drawable/ic_eye_hide" />
+
+            <ImageView
+                android:id="@+id/imgShowHidePassRepeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBtnLogIn"
+                app:layout_constraintStart_toEndOf="@+id/txtRepeatPass"
+                app:layout_constraintTop_toTopOf="@+id/imgBtnLogIn"
+                app:layout_constraintVertical_bias="0.468"
+                app:srcCompat="@drawable/ic_eye_hide" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </TableRow>

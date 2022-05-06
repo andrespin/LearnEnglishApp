@@ -1,0 +1,4 @@
+<resources>
+	<dimen name="field_height">35dp</dimen>
+	<dimen name="text_size">14sp</dimen>
+</resources>

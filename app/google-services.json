@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "347818807068",
+    "project_id": "learnenglishapp-c66a5",
+    "storage_bucket": "learnenglishapp-c66a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347818807068:android:540dc4abb14fc520f374d9",
+        "android_client_info": {
+          "package_name": "android.famme.learnenglishapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347818807068-mrr82gsdhcci35qeoa1aljhd6f76dfd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT0p5GVyiK8zDefo29nrhKxrwIFzM-mdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347818807068-mrr82gsdhcci35qeoa1aljhd6f76dfd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

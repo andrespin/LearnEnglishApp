@@ -1,5 +1,6 @@
-package android.famme.learnenglishapp;
+package android.famme.learnenglishapp.ui.progress;
 
+import android.famme.learnenglishapp.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

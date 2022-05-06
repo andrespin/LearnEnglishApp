@@ -1,5 +1,6 @@
-package android.famme.learnenglishapp;
+package android.famme.learnenglishapp.ui.viewpager;
 
+import android.famme.learnenglishapp.R;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,12 +19,13 @@ import com.google.android.material.tabs.TabLayoutMediator;
 public class ViewPagerFragment extends Fragment {
 
     public static ViewPager2 viewPager;
-    // The pager adapter, which provides the pages to the view pager widget.
     private FragmentStateAdapter pagerAdapter;
-    // Arrey of strings FOR TABS TITLES
     private String[] titles = new String[]{"Профиль", "Темы", "Прогресс"};
-    // tab titles
 
+    private Integer[] icons = new Integer[]{
+            R.drawable.ic_client_profile,
+            R.drawable.ic_client_themes,
+            R.drawable.ic_client_progress};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,14 +44,13 @@ public class ViewPagerFragment extends Fragment {
 
         viewPager = getActivity().findViewById(R.id.mypager);
 
-        pagerAdapter = new MyPagerAdapter(getActivity());
+        pagerAdapter = new ViewPagerAdapter(getActivity());
 
         viewPager.setAdapter(pagerAdapter);
-//inflating tab layout
-        TabLayout tabLayout = (TabLayout) getActivity().findViewById(R.id.tab_layout);
-//displaying tabs
-        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(titles[position])).attach();
-    }
 
+        TabLayout tabLayout = (TabLayout) getActivity().findViewById(R.id.tab_layout);
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setIcon(icons[position])).attach();
+
+    }
 
 }

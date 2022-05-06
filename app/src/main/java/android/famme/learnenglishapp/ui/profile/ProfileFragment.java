@@ -1,10 +1,10 @@
-package android.famme.learnenglishapp;
+package android.famme.learnenglishapp.ui.profile;
 
+import android.famme.learnenglishapp.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -15,8 +15,8 @@ public class ProfileFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.txt1);
-        tv.setText(getArguments().getString("msg"));
+      //  TextView tv = (TextView) v.findViewById(R.id.txt1);
+      //  tv.setText(getArguments().getString("msg"));
         return v;
     }
 

@@ -2,4 +2,18 @@
     <string name="app_name">LearnEnglishApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="CapitalLetterIsNotIncluded">Нет заглавных букв в введённом пароле</string>
+
+    <string name="PassLengthIsLessThanEight">Длина введённого пароля меньше 8 символов</string>
+
+    <string name="LowercaseLetterIsNotIncluded">Нет строчных букв в ведённом пароле</string>
+
+    <string name="DigitIsNotIncluded">Нет цифр в ведённом пароле</string>
+
+    <string name="SpecialSymbolsAreNotIncluded">Нет специальных символов типа *%;№ в введённом пароле </string>
+
+    <string name="LettersAreNotLatin">Не все буквы латинские в введённом пароле</string>
+    <string name="LoginIsIncorrect">Введите логин в виде x@x.x</string>
+
 </resources>
