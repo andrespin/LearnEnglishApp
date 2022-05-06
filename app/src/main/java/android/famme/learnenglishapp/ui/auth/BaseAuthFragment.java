@@ -103,9 +103,45 @@ abstract class BaseAuthFragment extends Fragment {
         binding.authLayout.txtIncorrectPassOrLogin.setVisibility(View.INVISIBLE);
     }
 
+    protected void showIncorrectResetLoginTxt(String s, FragmentAuthBinding binding) {
+        hideResetLoading(binding);
+        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.VISIBLE);
+        binding.recoverLayout.txtIncorrectLogin.setText(s);
+    }
+
+    protected void showResetLoading(FragmentAuthBinding binding) {
+        binding.recoverLayout.progressBar.setVisibility(View.VISIBLE);
+        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.INVISIBLE);
+    }
+
+    protected void hideResetLoading(FragmentAuthBinding binding) {
+        binding.recoverLayout.progressBar.setVisibility(View.INVISIBLE);
+        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.VISIBLE);
+    }
+
+    protected void showResetIncorrectLoginField(FragmentAuthBinding binding) {
+        binding.recoverLayout.imageEnterLogin.setImageResource(R.drawable.back_entrance_red);
+    }
+
+    protected void hideResetIncorrectLoginField(FragmentAuthBinding binding) {
+        binding.recoverLayout.imageEnterLogin.setImageResource(R.drawable.back_entrance);
+    }
+
     protected void hideAuthLoading(FragmentAuthBinding binding) {
         binding.authLayout.progressBar.setVisibility(View.INVISIBLE);
         binding.authLayout.txtIncorrectPassOrLogin.setVisibility(View.VISIBLE);
+    }
+
+    // --------------------
+
+    protected void showRegLoading(FragmentAuthBinding binding) {
+        binding.regLayout.progressBar.setVisibility(View.VISIBLE);
+      //  binding.regLayout.txtIncorrectLogin.setVisibility(View.INVISIBLE);
+    }
+
+    protected void hideRegLoading(FragmentAuthBinding binding) {
+        binding.recoverLayout.progressBar.setVisibility(View.INVISIBLE);
+        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.VISIBLE);
     }
 
 }

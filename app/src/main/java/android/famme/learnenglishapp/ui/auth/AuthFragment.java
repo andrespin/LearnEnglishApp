@@ -54,20 +54,22 @@ public class AuthFragment extends BaseAuthFragmentInit {
 
 
     private void initRegListeners() {
+
         binding.regLayout.imgBtnRegister.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
                 String email = binding.regLayout.txtEnterLogin.getText().
-                        toString();
+                        toString().replace( " ", "");
 
                 String pass = binding.regLayout.txtEnterPass.getText()
-                        .toString();
+                        .toString().replace( " ", "");
 
-                System.out.println(" pass " + pass.toString() + " email " + email);
+                String passRepeat = binding.regLayout.txtRepeatPass.getText()
+                        .toString().replace( " ", "");
 
-                model.singUp(email, pass, requireActivity());
+                model.checkLoginAndPass(email, pass, passRepeat);
 
             }
         });
@@ -123,11 +125,7 @@ public class AuthFragment extends BaseAuthFragmentInit {
 
                 String pass = binding.authLayout.txtEnterPass.getText().toString()
                         .replace(" ", "");
-                try {
-                    model.checkLoginAndPass(login, pass);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                model.checkLoginAndPass(login, pass);
             }
         });
 
@@ -159,7 +157,12 @@ public class AuthFragment extends BaseAuthFragmentInit {
             @Override
             public void onClick(View view) {
                 String email = binding.recoverLayout.txtEnterLogin.getText().toString();
-                model.resetPass(email);
+
+                String login = binding.recoverLayout.txtEnterLogin
+                        .getText().toString().replace(" ", "");
+
+                model.checkLoginAndPass(login);
+
             }
         });
 
@@ -173,6 +176,36 @@ public class AuthFragment extends BaseAuthFragmentInit {
 
 
     private void initViewModelListeners() {
+
+
+        model.eventShowRegLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+
+
+                showResetLoading(binding);
+                hideResetIncorrectLoginField(binding);
+
+
+            }
+        });
+
+
+        model.eventShowResetLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                showResetLoading(binding);
+                hideResetIncorrectLoginField(binding);
+            }
+        });
+
+        model.eventIncorrectLoginResetError.observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                hideResetLoading(binding);
+                showIncorrectResetLoginTxt(s, binding);
+            }
+        });
 
         model.eventIncorrectPassError.observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
