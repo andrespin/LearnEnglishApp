@@ -68,7 +68,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Ошибка "/>
-            
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -240,7 +240,6 @@
                 app:layout_constraintTop_toTopOf="@+id/imgBtnLogIn"
                 app:layout_constraintVertical_bias="0.468"
                 app:srcCompat="@drawable/ic_eye_hide" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </TableRow>
