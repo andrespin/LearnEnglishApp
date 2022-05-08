@@ -1,8 +1,8 @@
 package android.famme.learnenglishapp.data.di;
 
-import android.famme.learnenglishapp.utils.test.AuthData;
-import android.famme.learnenglishapp.utils.test.IAuthFirebase;
-import android.famme.learnenglishapp.utils.test.AuthFirebase;
+import android.famme.learnenglishapp.utils.firebase.AuthData;
+import android.famme.learnenglishapp.utils.firebase.IAuthFirebase;
+import android.famme.learnenglishapp.utils.firebase.AuthFirebase;
 
 import dagger.Module;
 import dagger.Provides;

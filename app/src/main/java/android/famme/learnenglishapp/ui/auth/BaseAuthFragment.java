@@ -77,8 +77,8 @@ abstract class BaseAuthFragment extends Fragment {
     }
 
     protected void showIncorrectLoginOrPasswordTxt(String s, FragmentAuthBinding binding) {
-        binding.authLayout.txtIncorrectPassOrLogin.setVisibility(View.VISIBLE);
-        binding.authLayout.txtIncorrectPassOrLogin.setText(s);
+        binding.txtMainInfo.setVisibility(View.VISIBLE);
+        binding.txtMainInfo.setText(s);
         hideAuthLoading(binding);
     }
 
@@ -99,24 +99,24 @@ abstract class BaseAuthFragment extends Fragment {
     }
 
     protected void showAuthLoading(FragmentAuthBinding binding) {
-        binding.authLayout.progressBar.setVisibility(View.VISIBLE);
-        binding.authLayout.txtIncorrectPassOrLogin.setVisibility(View.INVISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.txtMainInfo.setVisibility(View.INVISIBLE);
     }
 
     protected void showIncorrectResetLoginTxt(String s, FragmentAuthBinding binding) {
         hideResetLoading(binding);
-        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.VISIBLE);
-        binding.recoverLayout.txtIncorrectLogin.setText(s);
+        binding.txtMainInfo.setVisibility(View.VISIBLE);
+        binding.txtMainInfo.setText(s);
     }
 
     protected void showResetLoading(FragmentAuthBinding binding) {
-        binding.recoverLayout.progressBar.setVisibility(View.VISIBLE);
-        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.INVISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.txtMainInfo.setVisibility(View.INVISIBLE);
     }
 
     protected void hideResetLoading(FragmentAuthBinding binding) {
-        binding.recoverLayout.progressBar.setVisibility(View.INVISIBLE);
-        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.txtMainInfo.setVisibility(View.VISIBLE);
     }
 
     protected void showResetIncorrectLoginField(FragmentAuthBinding binding) {
@@ -128,20 +128,49 @@ abstract class BaseAuthFragment extends Fragment {
     }
 
     protected void hideAuthLoading(FragmentAuthBinding binding) {
-        binding.authLayout.progressBar.setVisibility(View.INVISIBLE);
-        binding.authLayout.txtIncorrectPassOrLogin.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.txtMainInfo.setVisibility(View.VISIBLE);
     }
 
     // --------------------
 
     protected void showRegLoading(FragmentAuthBinding binding) {
-        binding.regLayout.progressBar.setVisibility(View.VISIBLE);
-      //  binding.regLayout.txtIncorrectLogin.setVisibility(View.INVISIBLE);
+        binding.progressBar.setVisibility(View.VISIBLE);
+      //  binding.regLayout.txtMainInfoLogin.setVisibility(View.INVISIBLE);
     }
 
     protected void hideRegLoading(FragmentAuthBinding binding) {
-        binding.recoverLayout.progressBar.setVisibility(View.INVISIBLE);
-        binding.recoverLayout.txtIncorrectLogin.setVisibility(View.VISIBLE);
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.txtMainInfo.setVisibility(View.VISIBLE);
+    }
+
+    protected void clearTxtInfo(FragmentAuthBinding binding) {
+        binding.txtMainInfo.setText("");
+    }
+
+    protected void clearAuthFields(FragmentAuthBinding binding) {
+        binding.authLayout.txtEnterPass.setText("");
+        binding.authLayout.txtEnterLogin.setText("");
+        hideAuthLoading(binding);
+        hideAuthIncorrectPassField(binding);
+        hideAuthIncorrectLoginField(binding);
+        System.out.println("clearAuthFields(FragmentAuthBinding binding)");
+
+    }
+
+    protected void clearRecoverFields(FragmentAuthBinding binding) {
+        binding.recoverLayout.txtEnterLogin.setText("");
+        hideAuthLoading(binding);
+        hideResetIncorrectLoginField(binding);
+    }
+
+    protected void clearRegFields(FragmentAuthBinding binding) {
+        binding.regLayout.txtEnterLogin.setText("");
+        binding.regLayout.txtEnterPass.setText("");
+        binding.regLayout.editEnterName.setText("");
+        binding.regLayout.txtRepeatPass.setText("");
+        hideAuthLoading(binding);
+        hideResetIncorrectLoginField(binding);
     }
 
 }

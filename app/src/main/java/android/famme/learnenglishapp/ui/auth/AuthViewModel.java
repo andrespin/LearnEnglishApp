@@ -6,11 +6,10 @@ import android.famme.learnenglishapp.other.custom_exceptions.TheLoginIsIncorrect
 import android.famme.learnenglishapp.other.custom_exceptions.ThePassIsIncorrectlyWrittenException;
 import android.famme.learnenglishapp.other.custom_exceptions.ThePassesAreNotSameException;
 import android.famme.learnenglishapp.utils.authentication_data_checker.IAuthChecker;
-import android.famme.learnenglishapp.utils.test.IAuthFirebase;
+import android.famme.learnenglishapp.utils.firebase.IAuthFirebase;
 import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import javax.inject.Inject;
 
@@ -30,9 +29,6 @@ public class AuthViewModel extends BaseAuthViewModel {
     MutableLiveData<String> eventIncorrectLoginError = new MutableLiveData<>();
 
     MutableLiveData<String> eventIncorrectLoginResetError = new MutableLiveData<>();
-
-
-
 
     MutableLiveData<String> eventIncorrectLoginRegError = new MutableLiveData<>();
 

@@ -16,4 +16,9 @@
     <string name="LettersAreNotLatin">Не все буквы латинские в введённом пароле</string>
     <string name="LoginIsIncorrect">Введите логин в виде x@x.x</string>
 
+
+    <string name="txtRecover">
+        <u>Нажмите если забыли пароль</u>.
+    </string>
+
 </resources>

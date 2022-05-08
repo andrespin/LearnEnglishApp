@@ -1,4 +1,4 @@
-package android.famme.learnenglishapp.utils.test;
+package android.famme.learnenglishapp.utils.firebase;
 
 public class AuthData {
 

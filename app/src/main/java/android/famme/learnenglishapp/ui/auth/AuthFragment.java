@@ -1,24 +1,18 @@
 package android.famme.learnenglishapp.ui.auth;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.famme.learnenglishapp.App;
-import android.famme.learnenglishapp.R;
 import android.famme.learnenglishapp.databinding.FragmentAuthBinding;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import javax.inject.Inject;
 
@@ -43,6 +37,18 @@ public class AuthFragment extends BaseAuthFragmentInit {
         injectFragment(this);
         model.checkAuth();
         initListeners();
+        hideKeyboardListener();
+    }
+
+
+    public void hideKeyboardListener() {
+        binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
     }
 
     private void initListeners() {
@@ -61,13 +67,13 @@ public class AuthFragment extends BaseAuthFragmentInit {
             public void onClick(View view) {
 
                 String email = binding.regLayout.txtEnterLogin.getText().
-                        toString().replace( " ", "");
+                        toString().replace(" ", "");
 
                 String pass = binding.regLayout.txtEnterPass.getText()
-                        .toString().replace( " ", "");
+                        .toString().replace(" ", "");
 
                 String passRepeat = binding.regLayout.txtRepeatPass.getText()
-                        .toString().replace( " ", "");
+                        .toString().replace(" ", "");
 
                 model.checkLoginAndPass(email, pass, passRepeat);
 
@@ -101,6 +107,7 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.regLayout.imgLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearRegFields(binding);
                 showAuthLayout(binding);
             }
         });
@@ -112,11 +119,13 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.authLayout.imgBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearTxtInfo(binding);
+                clearAuthFields(binding);
                 showRegLayout(binding);
             }
         });
 
-        binding.authLayout.imgBtnLogIn.setOnClickListener(new View.OnClickListener() {
+        binding.authLayout.imgLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -128,7 +137,6 @@ public class AuthFragment extends BaseAuthFragmentInit {
                 model.checkLoginAndPass(login, pass);
             }
         });
-
 
         binding.authLayout.imgShowHidePass.setOnClickListener(new View.OnClickListener() {
 
@@ -145,6 +153,8 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.authLayout.txtRecover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearTxtInfo(binding);
+                clearAuthFields(binding);
                 showRecoverLayout(binding);
             }
         });
@@ -169,11 +179,12 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.recoverLayout.imgBtnLogInAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                clearTxtInfo(binding);
+                clearRecoverFields(binding);
                 showAuthLayout(binding);
             }
         });
     }
-
 
     private void initViewModelListeners() {
 
@@ -243,8 +254,6 @@ public class AuthFragment extends BaseAuthFragmentInit {
             @Override
             public void onChanged(Boolean aBoolean) {
                 navigator.navigateToMainApp(view);
-//                Navigation.findNavController(view).popBackStack(R.id.auth, true);
-//                Navigation.findNavController(view).navigate(R.id.view_pager);
             }
         });
 
@@ -255,7 +264,6 @@ public class AuthFragment extends BaseAuthFragmentInit {
                         Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
 }
