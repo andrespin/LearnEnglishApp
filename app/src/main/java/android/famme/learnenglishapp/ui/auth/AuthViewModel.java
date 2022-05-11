@@ -7,7 +7,8 @@ import android.famme.learnenglishapp.other.custom_exceptions.ThePassIsIncorrectl
 import android.famme.learnenglishapp.other.custom_exceptions.ThePassesAreNotSameException;
 import android.famme.learnenglishapp.utils.authentication_data_checker.IAuthChecker;
 import android.famme.learnenglishapp.utils.firebase.IAuthFirebase;
-import android.view.View;
+import android.util.Log;
+
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -15,37 +16,6 @@ import javax.inject.Inject;
 
 
 public class AuthViewModel extends BaseAuthViewModel {
-
-    private MutableLiveData<String> liveData = new MutableLiveData<>();
-
-    MutableLiveData<Boolean> eventLoading = new MutableLiveData<>();
-
-    MutableLiveData<View> eventRightRegData = new MutableLiveData<>();
-
-    MutableLiveData<String> eventToastMessage = new MutableLiveData<>();
-
-    MutableLiveData<String> eventIncorrectPassError = new MutableLiveData<>();
-
-    MutableLiveData<String> eventIncorrectLoginError = new MutableLiveData<>();
-
-    MutableLiveData<String> eventIncorrectLoginResetError = new MutableLiveData<>();
-
-    MutableLiveData<String> eventIncorrectLoginRegError = new MutableLiveData<>();
-
-    MutableLiveData<String> eventIncorrectPassRegError = new MutableLiveData<>();
-
-
-    MutableLiveData<String> eventCorrectLogin = new MutableLiveData<>();
-
-    MutableLiveData<String> eventCorrectPass = new MutableLiveData<>();
-
-    MutableLiveData<Boolean> eventShowLoading = new MutableLiveData<>();
-
-    MutableLiveData<Boolean> eventShowResetLoading = new MutableLiveData<>();
-
-    MutableLiveData<Boolean> eventShowRegLoading = new MutableLiveData<>();
-
-    MutableLiveData<Boolean> eventOpenApp = new MutableLiveData<>();
 
     @Inject
     IPreferences iPrefs;
@@ -56,25 +26,29 @@ public class AuthViewModel extends BaseAuthViewModel {
     @Inject
     IAuthChecker authChecker;
 
-    public void checkLoginAndPass(String login, String pass, String repeatPass) {
+    public void subscribeFirebase() {
+        authFirebase.getEventAuth().subscribe(observerFirebase);
+    }
+
+    public void checkLoginAndPass(String login, String pass, String repeatPass, String name, Activity activity) {
         try {
             if (authChecker.areThePassesSame(pass, repeatPass)) {
                 try {
-                    eventShowRegLoading.postValue(true);
+                    eventShowLoading.postValue(true);
 
                     if (authChecker.isLoginCorrectlyWritten(login)) {
 
                         try {
                             if (authChecker.isPassCorrectlyWritten(pass)) {
-                                // выполнение регистрации тут вызывается Firebase для регистрации
-                                // eventOpenApp.postValue(true);
+                                authFirebase.signUp(login, pass, activity);
+                                authFirebase.saveUserName(login, name);
                             }
 
                         } catch (ThePassIsIncorrectlyWrittenException e) {
                             e.printStackTrace();
                             String s =
                                     "android.famme.learnenglishapp.other.custom_exceptions.ThePassIsIncorrectlyWrittenException:";
-                            eventIncorrectPassRegError.postValue(
+                            eventShowTxtError.postValue(
                                     e.toString().replace(s, "")
                             );
                         }
@@ -83,7 +57,7 @@ public class AuthViewModel extends BaseAuthViewModel {
                     e.printStackTrace();
                     String s =
                             "android.famme.learnenglishapp.other.custom_exceptions.TheLoginIsIncorrectlyWrittenException:";
-                    eventIncorrectLoginRegError.postValue(
+                    eventShowTxtError.postValue(
                             e.toString().replace(s, "")
                     );
                 }
@@ -91,27 +65,33 @@ public class AuthViewModel extends BaseAuthViewModel {
         } catch (ThePassesAreNotSameException e) {
             e.printStackTrace();
             String s = "";
-            eventIncorrectPassRegError.postValue(
+            eventShowTxtError.postValue(
                     e.toString().replace(s, "")
             );
         }
     }
 
-    public void checkLoginAndPass(String login, String pass) {
+    public void checkLoginAndPass(String login, String pass, Activity activity) {
+
         try {
             eventShowLoading.postValue(true);
             if (authChecker.isLoginCorrectlyWritten(login)) {
                 try {
+
+                    System.out.println("authChecker.isPassCorrectlyWritten(pass): "+authChecker.isPassCorrectlyWritten(pass));
                     if (authChecker.isPassCorrectlyWritten(pass)) {
-                        eventOpenApp.postValue(true);
-
+                      //  eventOpenApp.postValue(true);
                         // Тут выполняется Firebase
-
+                        Log.d("event", "signInFirebase");
+                        iPrefs.setLogin(login);
+                        iPrefs.setPass(pass);
+                        authFirebase.signIn(login, pass, activity);
                     }
                 } catch (ThePassIsIncorrectlyWrittenException e) {
                     e.printStackTrace();
+                    Log.d("event", "signInFirebase error");
                     String s = "android.famme.learnenglishapp.other.custom_exceptions.ThePassIsIncorrectlyWrittenException:";
-                    eventIncorrectPassError.postValue(
+                    eventShowTxtError.postValue(
                             e.toString().replace(s, "")
                     );
                 }
@@ -120,17 +100,17 @@ public class AuthViewModel extends BaseAuthViewModel {
             e.printStackTrace();
             String s =
                     "android.famme.learnenglishapp.other.custom_exceptions.TheLoginIsIncorrectlyWrittenException:";
-            eventIncorrectLoginError.postValue(
+            eventShowTxtError.postValue(
                     e.toString().replace(s, "")
             );
         }
     }
 
-    public void checkLoginAndPass(String login)  {
+    public void checkLoginAndPass(String login) {
         try {
-            eventShowResetLoading.postValue(true);
+            eventShowLoading.postValue(true);
             if (authChecker.isLoginCorrectlyWritten(login)) {
-                // Тут выполняется Firebase
+                authFirebase.resetPass(login);
             }
         } catch (TheLoginIsIncorrectlyWrittenException e) {
             e.printStackTrace();
@@ -143,29 +123,34 @@ public class AuthViewModel extends BaseAuthViewModel {
     }
 
 
-
     public void init() {
 
     }
 
     public void checkAuth() {
+        System.out.println("iPrefs.getLogin() " + iPrefs.getLogin());
         if (iPrefs.getLogin() != null && !iPrefs.getLogin().equals("")) {
             eventOpenApp.postValue(true);
         }
     }
 
-    public void singUp(String email, String password, Activity activity) {
 
+    MutableLiveData<Boolean> eventShowRegister = new MutableLiveData<>();
+
+    public void showRegister() {
+        eventShowRegister.postValue(true);
     }
 
-    public void signIn(String email, String password, Activity activity, View v) {
+    MutableLiveData<Boolean> eventShowAuth = new MutableLiveData<>();
 
-        eventRightRegData.postValue(v);
-
+    public void showAuth() {
+        eventShowAuth.postValue(true);
     }
 
-    public void resetPass(String email) {
+    MutableLiveData<Boolean> eventShowAuthAfterReg = new MutableLiveData<>();
 
+    public void showAuthAfterReg() {
+        eventShowAuthAfterReg.postValue(true);
     }
 
 }

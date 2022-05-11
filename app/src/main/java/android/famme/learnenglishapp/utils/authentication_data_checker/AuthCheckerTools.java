@@ -87,7 +87,7 @@ abstract class AuthCheckerTools {
             );
         }
         checkIfTheConditionsAreSatisfied();
-        return false;
+        return true;
     }
 
     private void checkIfTheConditionsAreSatisfied() throws ThePassIsIncorrectlyWrittenException {

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loading"
+    android:oneshot="false"
+    tools:ignore="NamespaceTypo">
+    <item android:drawable="@drawable/back_image_button_green" android:duration="400"/>
+    <item android:drawable="@drawable/back_image_button_green_clicked" android:duration="400"/>
+</animation-list>

@@ -21,11 +21,17 @@
 
     <color name="item_red">#EE7D60</color>
 
+    <color name="item_red_clicked">#EE7D60</color>
+
     <color name="item_purple">#6750A4</color>
+
+    <color name="item_purple_clicked">#996750A4</color>
 
     <color name="item_blue">#7692FF</color>
 
     <color name="item_green">#4E9466</color>
+
+    <color name="item_green_click">#994E9466</color>
 
     <color name="item_pink">#F2B8B5</color>
 

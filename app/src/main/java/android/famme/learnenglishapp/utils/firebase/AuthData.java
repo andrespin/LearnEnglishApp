@@ -6,7 +6,18 @@ public class AuthData {
     private String pass = "";
     private String error = null;
     private String msg = "";
+    private String name = "";
     private AuthEvent authEvent;
+
+
+
+    public AuthData(String email, String pass, String name ,AuthEvent authEvent, String msg) {
+        this.pass = pass;
+        this.email = email;
+        this.authEvent = authEvent;
+        this.msg = msg;
+        this.name = name;
+    }
 
     public AuthData(String email, String pass, AuthEvent authEvent, String msg) {
         this.pass = pass;
@@ -26,6 +37,14 @@ public class AuthData {
         this.authEvent = authEvent;
     }
 
+    public String getMessage() {
+        return this.msg;
+    }
+
+
+    public AuthEvent getAuthEvent() {
+        return this.authEvent;
+    }
 
     public void setPass(String pass) {
         this.pass = pass;

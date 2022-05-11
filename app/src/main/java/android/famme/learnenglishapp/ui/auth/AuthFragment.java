@@ -1,8 +1,11 @@
 package android.famme.learnenglishapp.ui.auth;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.famme.learnenglishapp.R;
 import android.famme.learnenglishapp.databinding.FragmentAuthBinding;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +19,9 @@ import androidx.lifecycle.Observer;
 
 import javax.inject.Inject;
 
-public class AuthFragment extends BaseAuthFragmentInit {
+public class AuthFragment extends BaseAuthFragmentListeners {
+
+    AnimationDrawable animation;
 
     @Inject
     INavigator navigator;
@@ -38,6 +43,8 @@ public class AuthFragment extends BaseAuthFragmentInit {
         model.checkAuth();
         initListeners();
         hideKeyboardListener();
+        model.subscribeFirebase();
+
     }
 
 
@@ -62,21 +69,9 @@ public class AuthFragment extends BaseAuthFragmentInit {
     private void initRegListeners() {
 
         binding.regLayout.imgBtnRegister.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
-                String email = binding.regLayout.txtEnterLogin.getText().
-                        toString().replace(" ", "");
-
-                String pass = binding.regLayout.txtEnterPass.getText()
-                        .toString().replace(" ", "");
-
-                String passRepeat = binding.regLayout.txtRepeatPass.getText()
-                        .toString().replace(" ", "");
-
-                model.checkLoginAndPass(email, pass, passRepeat);
-
+                initRegLayoutImgBtnRegisterClick(binding);
             }
         });
 
@@ -107,8 +102,7 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.regLayout.imgLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearRegFields(binding);
-                showAuthLayout(binding);
+                initRegLayoutImgLogInClick(binding);
             }
         });
 
@@ -119,22 +113,14 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.authLayout.imgBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearTxtInfo(binding);
-                clearAuthFields(binding);
-                showRegLayout(binding);
+                initAuthLayoutImgBtnRegisterClick(binding);
             }
         });
 
         binding.authLayout.imgLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String login = binding.authLayout.txtEnterLogin.getText().toString()
-                        .replace(" ", "");
-
-                String pass = binding.authLayout.txtEnterPass.getText().toString()
-                        .replace(" ", "");
-                model.checkLoginAndPass(login, pass);
+                initAuthLayoutImgLogInClick(binding);
             }
         });
 
@@ -166,12 +152,8 @@ public class AuthFragment extends BaseAuthFragmentInit {
 
             @Override
             public void onClick(View view) {
-                String email = binding.recoverLayout.txtEnterLogin.getText().toString();
 
-                String login = binding.recoverLayout.txtEnterLogin
-                        .getText().toString().replace(" ", "");
-
-                model.checkLoginAndPass(login);
+                initRecoverLayoutImgLogInClick(binding);
 
             }
         });
@@ -179,41 +161,76 @@ public class AuthFragment extends BaseAuthFragmentInit {
         binding.recoverLayout.imgBtnLogInAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                initRecoverLayoutImgBtnLogInAgainClick(binding);
+            }
+        });
+    }
+
+
+    private void initViewModelListeners() {
+
+        
+        model.eventShowAuthAfterReg.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                clearRegFields(binding);
+                showAuthLayout(binding);
+            }
+        });
+
+        model.eventShowAuth.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
                 clearTxtInfo(binding);
                 clearRecoverFields(binding);
                 showAuthLayout(binding);
             }
         });
-    }
 
-    private void initViewModelListeners() {
-
-
-        model.eventShowRegLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+        model.eventShowRegister.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
+                clearTxtInfo(binding);
+                clearAuthFields(binding);
+                showRegLayout(binding);
+            }
+        });
 
+        model.eventShowTxtSuccess.observe(getViewLifecycleOwner(), new Observer<String>() {
 
-                showResetLoading(binding);
-                hideResetIncorrectLoginField(binding);
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onChanged(String s) {
+                hideLoading(binding);
+                binding.txtMainInfo.setText(s);
+                binding.txtMainInfo.setTextColor(R.color.item_green);
+            }
+        });
 
+        model.eventShowTxtError.observe(getViewLifecycleOwner(), new Observer<String>() {
 
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onChanged(String s) {
+                hideLoading(binding);
+                binding.txtMainInfo.setText(s);
+                binding.txtMainInfo.setTextColor(R.color.red);
             }
         });
 
 
-        model.eventShowResetLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+        model.eventShowLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                showResetLoading(binding);
-                hideResetIncorrectLoginField(binding);
+                showLoading(binding);
+                clearTxtInfo(binding);
             }
         });
 
         model.eventIncorrectLoginResetError.observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                hideResetLoading(binding);
+                hideLoading(binding);
                 showIncorrectResetLoginTxt(s, binding);
             }
         });
@@ -244,7 +261,7 @@ public class AuthFragment extends BaseAuthFragmentInit {
         model.eventShowLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                showAuthLoading(binding);
+                showLoading(binding);
                 hideAuthIncorrectLoginField(binding);
                 hideAuthIncorrectPassField(binding);
             }

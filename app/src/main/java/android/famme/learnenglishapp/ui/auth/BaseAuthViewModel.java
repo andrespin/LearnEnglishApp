@@ -1,8 +1,88 @@
 package android.famme.learnenglishapp.ui.auth;
 
+import static android.famme.learnenglishapp.utils.firebase.AuthEvent.LogIn;
+
+import android.famme.learnenglishapp.utils.firebase.AuthData;
+import android.famme.learnenglishapp.utils.firebase.AuthEvent;
+import android.util.Log;
+import android.view.View;
+
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+
 abstract class BaseAuthViewModel extends ViewModel {
+
+    MutableLiveData<Boolean> eventLoading = new MutableLiveData<>();
+
+    MutableLiveData<String> eventShowTxtError = new MutableLiveData<>();
+
+    MutableLiveData<String> eventShowTxtSuccess = new MutableLiveData<>();
+
+
+    MutableLiveData<View> eventRightRegData = new MutableLiveData<>();
+
+    MutableLiveData<String> eventToastMessage = new MutableLiveData<>();
+
+    MutableLiveData<String> eventIncorrectPassError = new MutableLiveData<>();
+
+    MutableLiveData<String> eventIncorrectLoginError = new MutableLiveData<>();
+
+    MutableLiveData<String> eventIncorrectLoginResetError = new MutableLiveData<>();
+
+    MutableLiveData<String> eventIncorrectLoginRegError = new MutableLiveData<>();
+
+    MutableLiveData<String> eventIncorrectPassRegError = new MutableLiveData<>();
+
+    MutableLiveData<Boolean> eventShowLoading = new MutableLiveData<>();
+
+//    MutableLiveData<Boolean> eventShowResetLoading = new MutableLiveData<>();
+//
+//    MutableLiveData<Boolean> eventShowRegLoading = new MutableLiveData<>();
+
+    MutableLiveData<Boolean> eventOpenApp = new MutableLiveData<>();
+
+    Observer<AuthData> observerFirebase = new Observer<AuthData>() {
+
+        @Override
+        public void onSubscribe(@NonNull Disposable d) {
+            Log.d("TAG", " First onSubscribe : " + d.isDisposed());
+        }
+
+        @Override
+        public void onNext(@NonNull AuthData authData) {
+            Log.d("TAG", " First onNext value : " + authData.getMessage());
+            AuthEvent event = authData.getAuthEvent();
+            switch (event) {
+                case Registration:
+                    eventShowTxtSuccess.postValue(authData.getMessage());
+                    break;
+                case ResetPass:
+                    eventShowTxtSuccess.postValue(authData.getMessage());
+                    break;
+                case LogIn:
+                    eventShowTxtSuccess.postValue(authData.getMessage());
+                    eventOpenApp.postValue(true);
+                    break;
+                case Error:
+                    eventShowTxtError.postValue(authData.getMessage());
+                    break;
+            }
+        }
+
+        @Override
+        public void onError(@NonNull Throwable e) {
+            Log.d("TAG", " First onError : " + e.getMessage());
+        }
+
+        @Override
+        public void onComplete() {
+            Log.d("TAG", " First onComplete");
+        }
+    };
 
 
 }
