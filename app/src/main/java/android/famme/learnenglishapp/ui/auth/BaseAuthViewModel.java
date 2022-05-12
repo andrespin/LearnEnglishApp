@@ -27,9 +27,9 @@ abstract class BaseAuthViewModel extends ViewModel {
 
     MutableLiveData<String> eventToastMessage = new MutableLiveData<>();
 
-    MutableLiveData<String> eventIncorrectPassError = new MutableLiveData<>();
+    MutableLiveData<Boolean> eventIncorrectPassFieldError = new MutableLiveData<>();
 
-    MutableLiveData<String> eventIncorrectLoginError = new MutableLiveData<>();
+    MutableLiveData<Boolean> eventIncorrectLoginFieldError = new MutableLiveData<>();
 
     MutableLiveData<String> eventIncorrectLoginResetError = new MutableLiveData<>();
 

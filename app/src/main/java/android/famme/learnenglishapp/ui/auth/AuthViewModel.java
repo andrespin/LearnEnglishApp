@@ -51,6 +51,7 @@ public class AuthViewModel extends BaseAuthViewModel {
                             eventShowTxtError.postValue(
                                     e.toString().replace(s, "")
                             );
+                            eventRegIncorrectPassFieldError.postValue(true);
                         }
                     }
                 } catch (TheLoginIsIncorrectlyWrittenException e) {
@@ -60,6 +61,7 @@ public class AuthViewModel extends BaseAuthViewModel {
                     eventShowTxtError.postValue(
                             e.toString().replace(s, "")
                     );
+                    eventRegIncorrectLoginFieldError.postValue(true);
                 }
             }
         } catch (ThePassesAreNotSameException e) {
@@ -68,8 +70,15 @@ public class AuthViewModel extends BaseAuthViewModel {
             eventShowTxtError.postValue(
                     e.toString().replace(s, "")
             );
+            eventRegSamePassesFieldError.postValue(true);
         }
     }
+
+    MutableLiveData<Boolean> eventRegSamePassesFieldError = new MutableLiveData<>();
+
+    MutableLiveData<Boolean> eventRegIncorrectPassFieldError = new MutableLiveData<>();
+
+    MutableLiveData<Boolean> eventRegIncorrectLoginFieldError = new MutableLiveData<>();
 
     public void checkLoginAndPass(String login, String pass, Activity activity) {
 
@@ -77,10 +86,9 @@ public class AuthViewModel extends BaseAuthViewModel {
             eventShowLoading.postValue(true);
             if (authChecker.isLoginCorrectlyWritten(login)) {
                 try {
-
-                    System.out.println("authChecker.isPassCorrectlyWritten(pass): "+authChecker.isPassCorrectlyWritten(pass));
+                    System.out.println("authChecker.isPassCorrectlyWritten(pass): " + authChecker.isPassCorrectlyWritten(pass));
                     if (authChecker.isPassCorrectlyWritten(pass)) {
-                      //  eventOpenApp.postValue(true);
+                        //  eventOpenApp.postValue(true);
                         // Тут выполняется Firebase
                         Log.d("event", "signInFirebase");
                         iPrefs.setLogin(login);
@@ -94,6 +102,7 @@ public class AuthViewModel extends BaseAuthViewModel {
                     eventShowTxtError.postValue(
                             e.toString().replace(s, "")
                     );
+                    eventIncorrectPassFieldError.postValue(true);
                 }
             }
         } catch (TheLoginIsIncorrectlyWrittenException e) {
@@ -103,6 +112,7 @@ public class AuthViewModel extends BaseAuthViewModel {
             eventShowTxtError.postValue(
                     e.toString().replace(s, "")
             );
+            eventIncorrectLoginFieldError.postValue(true);
         }
     }
 

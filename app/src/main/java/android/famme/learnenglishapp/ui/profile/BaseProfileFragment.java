@@ -13,19 +13,22 @@ abstract class BaseProfileFragment extends Fragment {
 
     ProfileViewModel model;
 
+    View view;
+
+    protected void initView(View view) {
+        this.view = view;
+    }
+
     protected void initViewModel(ProfileFragment fragment) {
         model = new ViewModelProvider(fragment).get(ProfileViewModel.class);
     }
 
-    protected void inject(ProfileFragment fragment ,ProfileViewModel model) {
+    protected void inject(ProfileFragment fragment, ProfileViewModel model) {
         injectViewModel(model);
         injectFragment(fragment);
     }
 
     protected void initListeners(FragmentProfileBinding binding) {
-        initBtnNewUserNameListener(binding);
-        initBtnSetNewPassListener(binding);
-        initBtnSetNewLoginListener(binding);
         initBtnLogOutListener(binding);
         initBtnDeleteProfileListener(binding);
     }
@@ -34,7 +37,7 @@ abstract class BaseProfileFragment extends Fragment {
         binding.btnDeleteProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                model.deleteProfile(getActivity());
+                model.deleteProfile(view);
             }
         });
     }
@@ -43,41 +46,7 @@ abstract class BaseProfileFragment extends Fragment {
         binding.btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                model.logOut(getActivity());
-            }
-        });
-    }
-
-    private void initBtnSetNewLoginListener(FragmentProfileBinding binding) {
-        binding.btnSetNewLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String newLogin = binding.editSetNewLogin.getText()
-                        .toString().replace(" ", "");
-                model.setNewLogin(newLogin, getActivity());
-            }
-        });
-    }
-
-
-    private void initBtnNewUserNameListener(FragmentProfileBinding binding) {
-        binding.btnSetNewUserName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String newName= binding.editSetNewUserName.getText()
-                        .toString().replace(" ", "");
-                model.setNewUserName(newName, getActivity());
-            }
-        });
-    }
-
-    private void initBtnSetNewPassListener(FragmentProfileBinding binding) {
-        binding.btnSetNewPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String newPass= binding.editSetNewPass.getText()
-                        .toString().replace(" ", "");
-                model.setNewPass(newPass, getActivity());
+                model.logOut(view);
             }
         });
     }
@@ -89,8 +58,6 @@ abstract class BaseProfileFragment extends Fragment {
     private void injectFragment(ProfileFragment fragment) {
         App.instance.appComponent.inject(fragment);
     }
-
-
 
 
 }

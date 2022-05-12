@@ -98,8 +98,6 @@ abstract class BaseAuthFragment extends Fragment {
         binding.authLayout.imageEnterPass.setImageResource(R.drawable.back_txt_frame);
     }
 
-
-
     protected void showIncorrectResetLoginTxt(String s, FragmentAuthBinding binding) {
         hideLoading(binding);
         binding.txtMainInfo.setVisibility(View.VISIBLE);
@@ -115,8 +113,6 @@ abstract class BaseAuthFragment extends Fragment {
         binding.progressBar.setVisibility(View.INVISIBLE);
         binding.txtMainInfo.setVisibility(View.VISIBLE);
     }
-
-
 
     protected void showResetIncorrectLoginField(FragmentAuthBinding binding) {
         binding.recoverLayout.imageEnterLogin.setImageResource(R.drawable.back_txt_frame_red);

@@ -194,37 +194,6 @@ public class AuthFirebase implements IAuthFirebase {
     }
 
     @Override
-    public void updateLogin(String login) {
-        com.google.firebase.auth.FirebaseUser user
-                = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
-        user.updateEmail(login).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Log.d("TAG", "Login updated");
-                eventAuth.onNext(new AuthData(AuthEvent.LoginUpdated, "Логин обновлён"));
-            }
-        });
-    }
-
-    @Override
-    public void updatePass(String pass) {
-        com.google.firebase.auth.FirebaseUser user
-                = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
-        user.updatePassword(pass).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Log.d("TAG", "Pass updated");
-                eventAuth.onNext(new AuthData(AuthEvent.PassUpdated, "Пароль обновлён"));
-            }
-        });
-    }
-
-    @Override
-    public void updateName(String login, String name) {
-        saveUserName(login, name);
-    }
-
-    @Override
     public void getUserName(String login) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String loginOnlyLetters = login.replaceAll("\\P{L}+", "");
@@ -244,13 +213,4 @@ public class AuthFirebase implements IAuthFirebase {
             }
         });
     }
-
-    @Override
-    public void testRx(String email) {
-        System.out.println("testRx(String email)");
-        eventAuth.onNext(
-                new AuthData(AuthEvent.Test, email)
-        );
-    }
-
 }

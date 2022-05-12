@@ -84,7 +84,7 @@
             android:layout_width="260dp"
             android:layout_height="42dp"
             android:fontFamily="@font/ibm_plex_sans"
-            android:text="Зарегистрироваться"
+            android:text="Восстановить пароль"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginTop="15dp"

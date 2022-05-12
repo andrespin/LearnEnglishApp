@@ -4,13 +4,14 @@ import android.app.Activity;
 import android.famme.learnenglishapp.data.storage.IPreferences;
 import android.famme.learnenglishapp.utils.authentication_data_checker.IAuthChecker;
 import android.famme.learnenglishapp.utils.firebase.IAuthFirebase;
+import android.famme.learnenglishapp.utils.navigator.INavigator;
+import android.view.View;
 
 import androidx.lifecycle.ViewModel;
 
 import javax.inject.Inject;
 
 public class ProfileViewModel extends ViewModel {
-
 
     @Inject
     IPreferences iPrefs;
@@ -19,33 +20,18 @@ public class ProfileViewModel extends ViewModel {
     IAuthFirebase authFirebase;
 
     @Inject
-    IAuthChecker authChecker;
+    INavigator navigator;
 
-
-    public void setNewUserName(String name, Activity activity) {
-        iPrefs.setNameLogin(name);
-    }
-
-    public void setNewPass(String pass, Activity activity) {
-        iPrefs.setPass(pass);
-    }
-
-
-    public void setNewLogin(String login, Activity activity) {
-        iPrefs.setLogin(login);
-    }
-
-
-    public void deleteProfile(Activity activity) {
+    public void deleteProfile(View view) {
         iPrefs.deleteLoginAndPass();
         authFirebase.deleteUser();
-        activity.finish();
+        navigator.navigateMainAppToAuth(view);
     }
 
-    public void logOut(Activity activity) {
+    public void logOut(View view) {
         iPrefs.deleteLoginAndPass();
         authFirebase.signOut();
-        activity.finish();
+        navigator.navigateMainAppToAuth(view);
     }
 
 }

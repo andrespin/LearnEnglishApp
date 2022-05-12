@@ -28,12 +28,11 @@ public class ProfileFragment extends BaseProfileFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView(view);
         initViewModel(this);
         inject(this, model);
         initListeners(binding);
     }
-
-
 
 
     public static ProfileFragment newInstance(String text) {

@@ -93,12 +93,4 @@ public interface IAuthFirebase {
      */
     void saveUserName(String login, String name);
 
-    void updateLogin(String login);
-
-    void updatePass(String pass);
-
-    void updateName(String login, String name);
-
-    void testRx(String email);
-
 }

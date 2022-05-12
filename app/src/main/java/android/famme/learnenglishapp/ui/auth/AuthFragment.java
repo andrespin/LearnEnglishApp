@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,7 +51,8 @@ public class AuthFragment extends BaseAuthFragmentListeners {
         binding.getRoot().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         });
@@ -88,13 +88,12 @@ public class AuthFragment extends BaseAuthFragmentListeners {
         });
 
         binding.regLayout.imgShowHidePassRepeat.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 if (isPassRegRepeatVisible) {
-                    setRegLayoutRepeatPassVisible(binding);
-                } else {
                     setRegLayoutRepeatPassInvisible(binding);
+                } else {
+                    setRegLayoutRepeatPassVisible(binding);
                 }
             }
         });
@@ -169,7 +168,6 @@ public class AuthFragment extends BaseAuthFragmentListeners {
 
     private void initViewModelListeners() {
 
-        
         model.eventShowAuthAfterReg.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
@@ -198,32 +196,21 @@ public class AuthFragment extends BaseAuthFragmentListeners {
 
         model.eventShowTxtSuccess.observe(getViewLifecycleOwner(), new Observer<String>() {
 
-            @SuppressLint("ResourceAsColor")
             @Override
             public void onChanged(String s) {
                 hideLoading(binding);
                 binding.txtMainInfo.setText(s);
-                binding.txtMainInfo.setTextColor(R.color.item_green);
+                binding.txtMainInfo.setTextColor(getActivity().getColor(R.color.item_green));
             }
         });
 
         model.eventShowTxtError.observe(getViewLifecycleOwner(), new Observer<String>() {
-
-            @SuppressLint("ResourceAsColor")
             @Override
             public void onChanged(String s) {
                 hideLoading(binding);
                 binding.txtMainInfo.setText(s);
-                binding.txtMainInfo.setTextColor(R.color.red);
-            }
-        });
+                binding.txtMainInfo.setTextColor(getActivity().getColor(R.color.red));
 
-
-        model.eventShowLoading.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                showLoading(binding);
-                clearTxtInfo(binding);
             }
         });
 
@@ -235,25 +222,16 @@ public class AuthFragment extends BaseAuthFragmentListeners {
             }
         });
 
-        model.eventIncorrectPassError.observe(getViewLifecycleOwner(), new Observer<String>() {
+        model.eventIncorrectLoginFieldError.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
-            public void onChanged(String s) {
-                showIncorrectLoginOrPasswordTxt(s, binding);
-            }
-        });
-
-        model.eventIncorrectLoginError.observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                showIncorrectLoginOrPasswordTxt(s, binding);
+            public void onChanged(Boolean aBoolean) {
                 showAuthIncorrectLoginField(binding);
             }
         });
 
-        model.eventIncorrectPassError.observe(getViewLifecycleOwner(), new Observer<String>() {
+        model.eventIncorrectPassFieldError.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
-            public void onChanged(String s) {
-                showIncorrectLoginOrPasswordTxt(s, binding);
+            public void onChanged(Boolean aBoolean) {
                 showAuthIncorrectPassField(binding);
             }
         });
@@ -273,14 +251,5 @@ public class AuthFragment extends BaseAuthFragmentListeners {
                 navigator.navigateToMainApp(view);
             }
         });
-
-        model.eventToastMessage.observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(String s) {
-                Toast.makeText(requireActivity(), s,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
-
 }
