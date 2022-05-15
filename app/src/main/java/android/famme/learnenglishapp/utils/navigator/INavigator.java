@@ -12,4 +12,13 @@ public interface INavigator {
     void navigateSplashToMainApp(View view);
 
     void navigateMainAppToAuth(View view);
+
+    void navigateThemesToTheme(View view, String themeName);
+
+    void navigateThemeToThemes(View view);
+
+    void navigateViewPagerToTheme(View view, String themeName);
+
+    void navigateThemeToViewPager(View view);
+
 }

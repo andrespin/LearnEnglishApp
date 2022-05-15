@@ -1,6 +1,7 @@
 package android.famme.learnenglishapp.ui.viewpager;
 
 import android.famme.learnenglishapp.R;
+import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,11 +17,12 @@ import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import javax.inject.Inject;
+
 public class ViewPagerFragment extends Fragment {
 
     public static ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
-    private String[] titles = new String[]{"Профиль", "Темы", "Прогресс"};
 
     private Integer[] icons = new Integer[]{
             R.drawable.ic_client_profile,
@@ -38,6 +40,10 @@ public class ViewPagerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init();
+        System.out.println("viewPager.getCurrentItem() :" + viewPager.getCurrentItem());
+
+        viewPager.setCurrentItem(1, false);
+
     }
 
     private void init() {
@@ -45,6 +51,10 @@ public class ViewPagerFragment extends Fragment {
         viewPager = getActivity().findViewById(R.id.mypager);
 
         pagerAdapter = new ViewPagerAdapter(getActivity());
+
+        System.out.println("viewPager " + viewPager);
+
+        System.out.println("pagerAdapter " + pagerAdapter);
 
         viewPager.setAdapter(pagerAdapter);
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/auth">
+    app:startDestination="@id/splash">
 
     <fragment
         android:id="@+id/auth"
@@ -12,9 +12,9 @@
 
         <action
             android:id="@+id/action_auth_to_view_pager"
+            app:destination="@id/view_pager"
             app:popUpTo="@+id/view_pager"
-            app:popUpToInclusive="true"
-            app:destination="@id/view_pager" />
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -22,6 +22,9 @@
         android:name="android.famme.learnenglishapp.ui.viewpager.ViewPagerFragment"
         tools:layout="@layout/fragment_view_pager">
 
+        <action
+            android:id="@+id/action_view_pager_to_theme"
+            app:destination="@id/theme" />
     </fragment>
 
     <fragment
@@ -35,6 +38,13 @@
         <action
             android:id="@+id/action_splash_to_view_pager"
             app:destination="@id/view_pager" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/theme"
+        android:name="android.famme.learnenglishapp.ui.themes.theme.ThemeFragment"
+        tools:layout="@layout/fragment_theme">
     </fragment>
 
 </navigation>

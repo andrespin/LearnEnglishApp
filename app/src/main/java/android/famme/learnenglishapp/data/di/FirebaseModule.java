@@ -17,7 +17,7 @@ public class FirebaseModule {
     }
 
     @Provides
-    IAuthFirebase getTest(PublishSubject<AuthData> eventAuth) {
+    IAuthFirebase getFirebase(PublishSubject<AuthData> eventAuth) {
         return new AuthFirebase(eventAuth);
     }
 

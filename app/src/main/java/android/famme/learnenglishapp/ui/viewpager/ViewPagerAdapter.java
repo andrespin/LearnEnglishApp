@@ -18,18 +18,19 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public Fragment createFragment(int pos) {
+        System.out.println(pos);
         switch (pos) {
             case 0: {
-                return ProfileFragment.newInstance("fragment 1");
+                return ProfileFragment.newInstance("");
             }
             case 1: {
-                return ProgressFragment.newInstance("fragment 2");
+                return ThemesFragment.newInstance("");
             }
             case 2: {
-                return ThemesFragment.newInstance("fragment 3");
+                return ProgressFragment.newInstance("");
             }
             default:
-                return ProgressFragment.newInstance("fragment 1, Default");
+                return ThemesFragment.newInstance("");
         }
     }
 

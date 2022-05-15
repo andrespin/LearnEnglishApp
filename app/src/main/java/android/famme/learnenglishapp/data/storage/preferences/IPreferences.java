@@ -1,4 +1,4 @@
-package android.famme.learnenglishapp.data.storage;
+package android.famme.learnenglishapp.data.storage.preferences;
 
 public interface IPreferences {
 

@@ -6,7 +6,11 @@ import android.famme.learnenglishapp.ui.auth.AuthFragment;
 import android.famme.learnenglishapp.ui.auth.AuthViewModel;
 import android.famme.learnenglishapp.ui.profile.ProfileFragment;
 import android.famme.learnenglishapp.ui.profile.ProfileViewModel;
+import android.famme.learnenglishapp.ui.progress.ProgressFragment;
 import android.famme.learnenglishapp.ui.splash.SplashFragment;
+import android.famme.learnenglishapp.ui.themes.ThemesFragment;
+import android.famme.learnenglishapp.ui.themes.ThemesViewModel;
+import android.famme.learnenglishapp.ui.themes.theme.ThemeFragment;
 
 import javax.inject.Singleton;
 
@@ -22,6 +26,14 @@ import dagger.Component;
         }
 )
 public interface AppComponent {
+
+    void inject(ProgressFragment progressFragment);
+
+    void inject(ThemesFragment themesFragment);
+
+    void inject(ThemesViewModel themesViewModel);
+
+    void inject(ThemeFragment themeFragment);
 
     void inject(SplashFragment splashFragment);
 

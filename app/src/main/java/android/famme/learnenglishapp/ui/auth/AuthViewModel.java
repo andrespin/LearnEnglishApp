@@ -1,7 +1,7 @@
 package android.famme.learnenglishapp.ui.auth;
 
 import android.app.Activity;
-import android.famme.learnenglishapp.data.storage.IPreferences;
+import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.other.custom_exceptions.TheLoginIsIncorrectlyWrittenException;
 import android.famme.learnenglishapp.other.custom_exceptions.ThePassIsIncorrectlyWrittenException;
 import android.famme.learnenglishapp.other.custom_exceptions.ThePassesAreNotSameException;
@@ -130,11 +130,6 @@ public class AuthViewModel extends BaseAuthViewModel {
                     e.toString().replace(s, "")
             );
         }
-    }
-
-
-    public void init() {
-
     }
 
     public void checkAuth() {

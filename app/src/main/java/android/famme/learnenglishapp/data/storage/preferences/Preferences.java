@@ -1,7 +1,7 @@
-package android.famme.learnenglishapp.data.storage;
+package android.famme.learnenglishapp.data.storage.preferences;
 
-import android.content.Context;
 import android.content.SharedPreferences;
+import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 
 public class Preferences implements IPreferences {
 

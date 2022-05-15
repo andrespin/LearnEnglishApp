@@ -1,6 +1,7 @@
 package android.famme.learnenglishapp.ui.splash;
 
-import android.famme.learnenglishapp.data.storage.IPreferences;
+import android.famme.learnenglishapp.App;
+import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.os.Bundle;
 
@@ -32,10 +33,15 @@ public class SplashFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (iPrefs.getLogin() != null && !iPrefs.getLogin().equals("")) {
-            navigator.navigateSplashToMainApp(view);
-        } else {
-            navigator.navigateSplashToAuth(view);
-        }
+        App.instance.appComponent.inject(this);
+        navigator.navigateSplashToAuth(view);
+
+      //  navigator.navigateSplashToMainApp(view);
+
+//        if (iPrefs.getLogin() != null && !iPrefs.getLogin().equals("")) {
+//            navigator.navigateSplashToMainApp(view);
+//        } else {
+//            navigator.navigateSplashToAuth(view);
+//        }
     }
 }

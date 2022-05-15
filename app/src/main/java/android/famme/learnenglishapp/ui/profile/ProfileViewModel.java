@@ -1,8 +1,6 @@
 package android.famme.learnenglishapp.ui.profile;
 
-import android.app.Activity;
-import android.famme.learnenglishapp.data.storage.IPreferences;
-import android.famme.learnenglishapp.utils.authentication_data_checker.IAuthChecker;
+import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.utils.firebase.IAuthFirebase;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.view.View;
