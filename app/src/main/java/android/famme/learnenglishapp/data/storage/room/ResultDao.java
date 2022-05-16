@@ -8,8 +8,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import io.reactivex.rxjava3.core.Single;
-
 @Dao
 public interface ResultDao {
 
@@ -17,12 +15,15 @@ public interface ResultDao {
     void insert(ResultEntity resultEntity);
 
     @Query("SELECT * FROM result")
-    Single<List<ResultEntity>> getAll();
+    List<ResultEntity> getAll();
 
     @Update
     void update(ResultEntity resultEntity);
 
     @Delete
     void delete(ResultEntity resultEntity);
+
+    @Query("DELETE FROM result")
+    void deleteAllResults();
 
 }

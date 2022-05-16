@@ -1,11 +1,9 @@
 package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 
-public class Shopping extends Task {
-
-    public Shopping(Context context) {
+public class Summer extends Task {
+    public Summer(Context context) {
         super(context);
     }
 
@@ -13,49 +11,49 @@ public class Shopping extends Task {
 
     public String hint1 = "Введите пропущенный фрагмент...";
 
-    public String task1Q = "Shopping must be one of the world’s _____________ hobbies.";
+    public String task1Q = "The best thing about living __________________ has four seasons is summer.";
 
-    public String task1A = "most popular";
+    public String task1A = "in a country that";
 
     public String task2 = "2.  Восстановите пропуски в предложении";
 
     public String hint2 = "Введите пропущенный фрагмент...";
 
-    public String task2Q = "I know a lot of people who like window shopping – just _____________________ without wanting to buy anything.";
+    public String task2Q = "It __________________ hot.";
 
-    public String task2A = "walking around shops";
+    public String task2A = "can never get too";
 
     public String hint3 = "Введите исправленное предложение...";
 
     public String task3 = "3.\tВосстановите порядок слов в предложении";
 
-    public String task3Q = " <u>nothing There’s than boring more</u> wandering around shopping malls.";
+    public String task3Q = " Summer <u>we is have a picnics time in when the</u> park and the sky is always blue.";
 
-    public String task3A = "There’s nothing more boring than wandering around shopping malls.";
+    public String task3A = "Summer is a time when we have picnics in the park and the sky is always blue.";
 
     public String hint4 = "Введите исправленное предложение...";
 
     public String task4 = "4.\tВосстановите порядок слов в предложении";
 
-    public String task4Q = "<u>is shopping go to time worst The on</u> a Saturday afternoon during sale season.";
+    public String task4Q = "I live <u>in nice are summers where country a</u>.";
 
-    public String task4A = "The worst time to go shopping is on a Saturday afternoon during sale season.";
+    public String task4A = "I live in a country where summers are nice.";
 
     public String hint5 = "Введите исправленное слово...";
 
     public String task5 = "5.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task5Q = "What a <u>etasw</u> of time.";
+    public String task5Q = "They’re not really in <u>fshnaoi</u> for the next summer, but I don’t care.";
 
-    public String task5A = "waste";
+    public String task5A = "fashion";
 
     public String hint6 = "Введите исправленное слово...";
 
     public String task6 = "6.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task6Q = "If I have to go shopping, I go in the morning on a <u>awdekye</u>.";
+    public String task6Q = "One thing I don’t understand about summer is summer <u>yiohasld</u>.";
 
-    public String task6A = "waste";
+    public String task6A = "holidays";
 
     public String hint7 = "Введите перевод...";
 
@@ -63,27 +61,27 @@ public class Shopping extends Task {
 
     public String task7Q = "I was happy when online shopping came along";
 
-    public String task7A = "Я был счастлив, когда появился интернет-шопинг.";
+    public String task7A = "It’s warm here.";
 
-    public String hint8 = "Введите перевод...";
+    public String hint8 = "Здесь тепло.";
 
     public String task8 = "8.\tПереведите предложение на русский язык";
 
-    public String task8Q = "This is very relaxing.";
+    public String task8Q = "Why not go to a warm country in the winter?";
 
-    public String task8A = "это очень расслабляет.";
+    public String task8A = "Почему бы не поехать зимой в теплую страну?";
 
     public String task9 = "9.\tВерно ли данное утверждение?";
 
-    public String task9Q = "My plan for shopping is ‘quickly in, quickly out’.";
+    public String task9Q = "Everyone I know goes to a warm country in the summer.";
 
     public Boolean task9A = true;
 
     public String task10 = "10.\tВерно ли данное утверждение?";
 
-    public String task10Q = "I was happy when online shopping came along.";
+    public String task10Q = "I hate shopping for summer clothes.";
 
-    public Boolean task10A = true;
+    public Boolean task10A = false;
 
     @Override
     public String getHint1() {
@@ -277,5 +275,4 @@ public class Shopping extends Task {
     public Boolean getTask10A() {
         return task10A;
     }
-
 }

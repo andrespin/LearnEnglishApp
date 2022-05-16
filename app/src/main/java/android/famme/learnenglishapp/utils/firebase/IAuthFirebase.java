@@ -2,6 +2,8 @@ package android.famme.learnenglishapp.utils.firebase;
 
 import android.app.Activity;
 
+import java.util.List;
+
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 /**
@@ -66,6 +68,13 @@ public interface IAuthFirebase {
     void updatePass(String email, String newPass);
 
     /**
+     * @param email Функция обноволения логина
+     */
+
+    void updateLogin(String email);
+
+
+    /**
      * Удаление пользователя через сервис, при получении уведомления об успешном удалении
      * пользователя все данные пользователя в приложении будут удалены, а пользователь вернётся
      * к экрану авторизации.
@@ -92,5 +101,11 @@ public interface IAuthFirebase {
      * @param name  Ф-ия сохраняет имя пользователя в качестве данных.
      */
     void saveUserName(String login, String name);
+
+    List<String> getProfileResult();
+
+    void deleteProfileResult();
+
+    void setProfileResult();
 
 }

@@ -7,13 +7,7 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.style.BackgroundColorSpan;
 
-
-// https://githubhelp.com/xeoh/TextHighlighter
-// выделитель текста
 public class Personality extends Task {
-
-//    String newString = oldString.replaceAll(textToHighlight, "<font color='red'>"+textToHighlight+"</font>");
-//textView.setText(Html.fromHtml(newString));
 
     public Personality(Context context) {
         super(context);
@@ -90,8 +84,6 @@ public class Personality extends Task {
     }
 
     public String task3Q = "The <u>of friends rubbed personalities my have off</u> on me, which I’m happy about.";
-
-  // <u>peoerxl</u>
 
     @Override
     public String getTask3Q() {

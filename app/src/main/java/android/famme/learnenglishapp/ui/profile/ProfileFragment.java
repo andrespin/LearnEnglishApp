@@ -5,6 +5,7 @@ import android.famme.learnenglishapp.R;
 import android.famme.learnenglishapp.databinding.FragmentProfileBinding;
 import android.famme.learnenglishapp.ui.auth.AuthFragment;
 import android.famme.learnenglishapp.ui.auth.AuthViewModel;
+import android.famme.learnenglishapp.ui.progress.ProgressViewModel;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,8 @@ public class ProfileFragment extends BaseProfileFragment {
         initViewModel(this);
         inject(this, model);
         initListeners(binding);
+        observeViewModel();
     }
-
 
     public static ProfileFragment newInstance(String text) {
         ProfileFragment f = new ProfileFragment();

@@ -1,11 +1,10 @@
 package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 
-public class Shopping extends Task {
+public class Lifestyle extends Task {
 
-    public Shopping(Context context) {
+    public Lifestyle(Context context) {
         super(context);
     }
 
@@ -13,75 +12,75 @@ public class Shopping extends Task {
 
     public String hint1 = "Введите пропущенный фрагмент...";
 
-    public String task1Q = "Shopping must be one of the world’s _____________ hobbies.";
+    public String task1Q = "I also want a nice house ________________.";
 
-    public String task1A = "most popular";
+    public String task1A = "where I can relax";
 
     public String task2 = "2.  Восстановите пропуски в предложении";
 
     public String hint2 = "Введите пропущенный фрагмент...";
 
-    public String task2Q = "I know a lot of people who like window shopping – just _____________________ without wanting to buy anything.";
+    public String task2Q = "I haven’t ________________ yet because I haven’t got enough money.";
 
-    public String task2A = "walking around shops";
+    public String task2A = "got that lifestyle";
 
     public String hint3 = "Введите исправленное предложение...";
 
     public String task3 = "3.\tВосстановите порядок слов в предложении";
 
-    public String task3Q = " <u>nothing There’s than boring more</u> wandering around shopping malls.";
+    public String task3Q = "<u>Everyone good wants lifestyle a</u>.";
 
-    public String task3A = "There’s nothing more boring than wandering around shopping malls.";
+    public String task3A = "Everyone wants a good lifestyle.";
 
     public String hint4 = "Введите исправленное предложение...";
 
     public String task4 = "4.\tВосстановите порядок слов в предложении";
 
-    public String task4Q = "<u>is shopping go to time worst The on</u> a Saturday afternoon during sale season.";
+    public String task4Q = "<u>also want lots of friends so I can do stuff I with them</u>.";
 
-    public String task4A = "The worst time to go shopping is on a Saturday afternoon during sale season.";
+    public String task4A = "I also want lots of friends so I can do stuff with them.";
 
     public String hint5 = "Введите исправленное слово...";
 
     public String task5 = "5.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task5Q = "What a <u>etasw</u> of time.";
+    public String task5Q = "Of <u>ocseru</u> I have to have a holiday every year in another country.";
 
-    public String task5A = "waste";
+    public String task5A = "Of course";
 
     public String hint6 = "Введите исправленное слово...";
 
     public String task6 = "6.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task6Q = "If I have to go shopping, I go in the morning on a <u>awdekye</u>.";
+    public String task6Q = "I want a good job that is quite near my house – I don’t want to dpesn a long time on trains and buses.";
 
-    public String task6A = "waste";
+    public String task6A = "spend";
 
     public String hint7 = "Введите перевод...";
 
     public String task7 = "7.\tПереведите предложение на русский язык";
 
-    public String task7Q = "I was happy when online shopping came along";
+    public String task7Q = "I’m a little jealous of my friend’s lifestyle.";
 
-    public String task7A = "Я был счастлив, когда появился интернет-шопинг.";
+    public String task7A = "Я немного завидую образу жизни моего друга.";
 
     public String hint8 = "Введите перевод...";
 
     public String task8 = "8.\tПереведите предложение на русский язык";
 
-    public String task8Q = "This is very relaxing.";
+    public String task8Q = "I also want a nice house where I can relax.";
 
-    public String task8A = "это очень расслабляет.";
+    public String task8A = "Я также хочу хороший дом, где я мог бы расслабиться.";
 
     public String task9 = "9.\tВерно ли данное утверждение?";
 
-    public String task9Q = "My plan for shopping is ‘quickly in, quickly out’.";
+    public String task9Q = "She has everything and is always going out and having fun.";
 
     public Boolean task9A = true;
 
     public String task10 = "10.\tВерно ли данное утверждение?";
 
-    public String task10Q = "I was happy when online shopping came along.";
+    public String task10Q = "I like decorating and shopping for furniture.";
 
     public Boolean task10A = true;
 

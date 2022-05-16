@@ -1,11 +1,10 @@
 package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 
-public class Shopping extends Task {
+public class Education extends Task {
 
-    public Shopping(Context context) {
+    public Education(Context context) {
         super(context);
     }
 
@@ -13,75 +12,76 @@ public class Shopping extends Task {
 
     public String hint1 = "Введите пропущенный фрагмент...";
 
-    public String task1Q = "Shopping must be one of the world’s _____________ hobbies.";
+    public String task1Q = "______________________ the difference between success and failure.";
 
-    public String task1A = "most popular";
+    public String task1A = "It can make";
 
     public String task2 = "2.  Восстановите пропуски в предложении";
 
     public String hint2 = "Введите пропущенный фрагмент...";
 
-    public String task2Q = "I know a lot of people who like window shopping – just _____________________ without wanting to buy anything.";
+    public String task2Q = "In ____________, people are lucky to have good schools.";
 
-    public String task2A = "walking around shops";
+    public String task2A = "rich countries";
 
     public String hint3 = "Введите исправленное предложение...";
 
     public String task3 = "3.\tВосстановите порядок слов в предложении";
 
-    public String task3Q = " <u>nothing There’s than boring more</u> wandering around shopping malls.";
+    public String task3Q = "Education is <u>things important most the of one</u> in our lives.";
 
-    public String task3A = "There’s nothing more boring than wandering around shopping malls.";
+    public String task3A = "Education is one of the most important things in our lives.";
 
     public String hint4 = "Введите исправленное предложение...";
 
     public String task4 = "4.\tВосстановите порядок слов в предложении";
 
-    public String task4Q = "<u>is shopping go to time worst The on</u> a Saturday afternoon during sale season.";
+    public String task4Q = "In Japan, there are even <u>schools babies learn private for to English</u>.";
 
-    public String task4A = "The worst time to go shopping is on a Saturday afternoon during sale season.";
+    public String task4A = "In Japan, there are even private schools for babies to learn English.";
 
     public String hint5 = "Введите исправленное слово...";
 
     public String task5 = "5.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task5Q = "What a <u>etasw</u> of time.";
+    public String task5Q = " <u>hPpeasr</u> schools need to find better ways to teach so children want to learn.";
 
-    public String task5A = "waste";
+    public String task5A = "Perhaps";
 
     public String hint6 = "Введите исправленное слово...";
 
     public String task6 = "6.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task6Q = "If I have to go shopping, I go in the morning on a <u>awdekye</u>.";
+    public String task6Q = "Education is the key to a better <u>fuuret</u>.";
 
-    public String task6A = "waste";
+    public String task6A = "future";
 
     public String hint7 = "Введите перевод...";
 
     public String task7 = "7.\tПереведите предложение на русский язык";
 
-    public String task7Q = "I was happy when online shopping came along";
+    public String task7Q = "Make sure you never stop learning.";
 
-    public String task7A = "Я был счастлив, когда появился интернет-шопинг.";
+    public String task7A = "Убедитесь, что вы никогда не прекращаете учиться.";
 
     public String hint8 = "Введите перевод...";
 
     public String task8 = "8.\tПереведите предложение на русский язык";
 
-    public String task8Q = "This is very relaxing.";
+    public String task8Q = "Education is the key to a better future.";
 
-    public String task8A = "это очень расслабляет.";
+    public String task8A = "Образование - это ключ к лучшему будущему.";
+
 
     public String task9 = "9.\tВерно ли данное утверждение?";
 
-    public String task9Q = "My plan for shopping is ‘quickly in, quickly out’.";
+    public String task9Q = "Children stop learning from a very young age.";
 
-    public Boolean task9A = true;
+    public Boolean task9A = false;
 
     public String task10 = "10.\tВерно ли данное утверждение?";
 
-    public String task10Q = "I was happy when online shopping came along.";
+    public String task10Q = "It’s sad that in many parts of the world, children want to learn but can’t.";
 
     public Boolean task10A = true;
 
@@ -130,7 +130,6 @@ public class Shopping extends Task {
         return hint3;
     }
 
-
     @Override
     public String getTask3() {
         return task3;
@@ -140,7 +139,6 @@ public class Shopping extends Task {
     public String getTask3Q() {
         return task3Q;
     }
-
 
     @Override
     public String getTask3A() {

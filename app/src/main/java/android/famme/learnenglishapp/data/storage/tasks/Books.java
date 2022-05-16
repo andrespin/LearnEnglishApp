@@ -1,11 +1,9 @@
 package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 
-public class Shopping extends Task {
-
-    public Shopping(Context context) {
+public class Books extends Task {
+    public Books(Context context) {
         super(context);
     }
 
@@ -13,75 +11,76 @@ public class Shopping extends Task {
 
     public String hint1 = "Введите пропущенный фрагмент...";
 
-    public String task1Q = "Shopping must be one of the world’s _____________ hobbies.";
+    public String task1Q = "Don’t you think books ______________________ thing in the world?";
 
-    public String task1A = "most popular";
+    public String task1A = "are the best";
 
     public String task2 = "2.  Восстановите пропуски в предложении";
 
     public String hint2 = "Введите пропущенный фрагмент...";
 
-    public String task2Q = "I know a lot of people who like window shopping – just _____________________ without wanting to buy anything.";
+    public String task2Q = "I have been ______________________ bookworm since then.";
 
-    public String task2A = "walking around shops";
+    public String task2A = "a bit of a";
 
     public String hint3 = "Введите исправленное предложение...";
 
     public String task3 = "3.\tВосстановите порядок слов в предложении";
 
-    public String task3Q = " <u>nothing There’s than boring more</u> wandering around shopping malls.";
+    public String task3Q = "I can’t remember <u>my reading life a when time I in wasn’t</u> a book.";
 
-    public String task3A = "There’s nothing more boring than wandering around shopping malls.";
+    public String task3A = "I can’t remember a time in my life when I wasn’t reading a book.";
 
     public String hint4 = "Введите исправленное предложение...";
 
     public String task4 = "4.\tВосстановите порядок слов в предложении";
 
-    public String task4Q = "<u>is shopping go to time worst The on</u> a Saturday afternoon during sale season.";
+    public String task4Q = " <u>my You’ll see with head usually me</u> buried in a book.";
 
-    public String task4A = "The worst time to go shopping is on a Saturday afternoon during sale season.";
+    public String task4A = "You’ll usually see me with my head buried in a book.";
 
     public String hint5 = "Введите исправленное слово...";
 
     public String task5 = "5.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task5Q = "What a <u>etasw</u> of time.";
+    public String task5Q = "Novels are great for getting to know other worlds and <u>ustrcleu</u>.";
 
-    public String task5A = "waste";
+    public String task5A = "cultures";
+
 
     public String hint6 = "Введите исправленное слово...";
 
     public String task6 = "6.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task6Q = "If I have to go shopping, I go in the morning on a <u>awdekye</u>.";
+    public String task6Q = "Books need to be in your hand and made of <u>parep</u>.";
 
-    public String task6A = "waste";
+    public String task6A = "paper";
 
     public String hint7 = "Введите перевод...";
 
     public String task7 = "7.\tПереведите предложение на русский язык";
 
-    public String task7Q = "I was happy when online shopping came along";
+    public String task7Q = "I still prefer books to the Internet.";
 
-    public String task7A = "Я был счастлив, когда появился интернет-шопинг.";
+    public String task7A = "Я по-прежнему предпочитаю книги Интернету.";
 
     public String hint8 = "Введите перевод...";
 
     public String task8 = "8.\tПереведите предложение на русский язык";
 
-    public String task8Q = "This is very relaxing.";
+    public String task8Q = "Encyclopedias are cool too – you can learn everything about everything in these.";
 
-    public String task8A = "это очень расслабляет.";
+    public String task8A = "Энциклопедии тоже классные – в них можно узнать все обо всем.";
 
     public String task9 = "9.\tВерно ли данное утверждение?";
 
-    public String task9Q = "My plan for shopping is ‘quickly in, quickly out’.";
+    public String task9Q = "I love all kinds of books.";
 
     public Boolean task9A = true;
 
     public String task10 = "10.\tВерно ли данное утверждение?";
 
-    public String task10Q = "I was happy when online shopping came along.";
+    public String task10Q = "I also like autobiographies because I think it’s interesting to read about people’s lives.";
 
     public Boolean task10A = true;
 
@@ -130,7 +129,6 @@ public class Shopping extends Task {
         return hint3;
     }
 
-
     @Override
     public String getTask3() {
         return task3;
@@ -140,7 +138,6 @@ public class Shopping extends Task {
     public String getTask3Q() {
         return task3Q;
     }
-
 
     @Override
     public String getTask3A() {

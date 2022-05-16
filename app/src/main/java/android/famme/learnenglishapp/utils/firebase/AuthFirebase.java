@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
 import io.reactivex.rxjava3.subjects.PublishSubject;
 
 public class AuthFirebase implements IAuthFirebase {
@@ -128,7 +130,6 @@ public class AuthFirebase implements IAuthFirebase {
 
     @Override
     public void updatePass(String email, String newPass) {
-
         com.google.firebase.auth.FirebaseUser user
                 = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
 
@@ -140,6 +141,24 @@ public class AuthFirebase implements IAuthFirebase {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Log.d("TAG", "User password updated.");
+                        } else {
+
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void updateLogin(String email) {
+        com.google.firebase.auth.FirebaseUser user
+                = com.google.firebase.auth.FirebaseAuth.getInstance().getCurrentUser();
+
+        user.updateEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("TAG", "User email updated");
                         } else {
 
                         }
@@ -194,6 +213,21 @@ public class AuthFirebase implements IAuthFirebase {
     }
 
     @Override
+    public List<String> getProfileResult() {
+        return null;
+    }
+
+    @Override
+    public void deleteProfileResult() {
+
+    }
+
+    @Override
+    public void setProfileResult() {
+
+    }
+
+    @Override
     public void getUserName(String login) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String loginOnlyLetters = login.replaceAll("\\P{L}+", "");
@@ -208,7 +242,6 @@ public class AuthFirebase implements IAuthFirebase {
 
             @Override
             public void onCancelled(DatabaseError error) {
-                // Failed to read value
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });

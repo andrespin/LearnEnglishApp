@@ -17,4 +17,14 @@ public class ResultEntity {
         this.theme = theme;
         this.result = result;
     }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public int getResult(){
+        return result;
+    }
+
+
 }

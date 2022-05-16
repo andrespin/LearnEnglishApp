@@ -1,89 +1,89 @@
 package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 
-public class Shopping extends Task {
+public class Family extends Task {
 
-    public Shopping(Context context) {
+    public Family(Context context) {
         super(context);
     }
+
 
     public String task1 = "1.  Восстановите пропуски в предложении";
 
     public String hint1 = "Введите пропущенный фрагмент...";
 
-    public String task1Q = "Shopping must be one of the world’s _____________ hobbies.";
+    public String task1Q = "What does family ___________________?";
 
-    public String task1A = "most popular";
+    public String task1A = "mean to you";
 
     public String task2 = "2.  Восстановите пропуски в предложении";
 
     public String hint2 = "Введите пропущенный фрагмент...";
 
-    public String task2Q = "I know a lot of people who like window shopping – just _____________________ without wanting to buy anything.";
+    public String task2Q = "Maybe the stress of modern life puts ____________________on families.";
 
-    public String task2A = "walking around shops";
+    public String task2A = "too much pressure";
 
     public String hint3 = "Введите исправленное предложение...";
 
     public String task3 = "3.\tВосстановите порядок слов в предложении";
 
-    public String task3Q = " <u>nothing There’s than boring more</u> wandering around shopping malls.";
+    public String task3Q = "Brothers and sisters who <u>each don’t other like</u>, parents who never talk to each other.";
 
-    public String task3A = "There’s nothing more boring than wandering around shopping malls.";
+    public String task3A = "Brothers and sisters who don’t like each other, parents who never talk to each other.";
 
     public String hint4 = "Введите исправленное предложение...";
 
     public String task4 = "4.\tВосстановите порядок слов в предложении";
 
-    public String task4Q = "<u>is shopping go to time worst The on</u> a Saturday afternoon during sale season.";
+    public String task4Q = "There is a lot of talk in the news <u>family of breakdown the about life</u>.";
 
-    public String task4A = "The worst time to go shopping is on a Saturday afternoon during sale season.";
+    public String task4A = "There is a lot of talk in the news about the breakdown of family life.";
 
     public String hint5 = "Введите исправленное слово...";
 
     public String task5 = "5.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task5Q = "What a <u>etasw</u> of time.";
+    public String task5Q = "I know a lot of families that have many <u>eoblpmrs</u>.";
 
-    public String task5A = "waste";
+    public String task5A = "problems";
 
     public String hint6 = "Введите исправленное слово...";
 
     public String task6 = "6.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task6Q = "If I have to go shopping, I go in the morning on a <u>awdekye</u>.";
+    public String task6Q = "It seems as though family life was better a <u>oegraneint</u> or two ago.";
 
-    public String task6A = "waste";
+    public String task6A = "generation";
 
     public String hint7 = "Введите перевод...";
 
     public String task7 = "7.\tПереведите предложение на русский язык";
 
-    public String task7Q = "I was happy when online shopping came along";
+    public String task7Q = "In a perfect world, all families should be happy and everyone should get on well together.";
 
-    public String task7A = "Я был счастлив, когда появился интернет-шопинг.";
+    public String task7A = "В идеальном мире все семьи должны быть счастливы, и все должны хорошо ладить друг с другом.";
 
     public String hint8 = "Введите перевод...";
 
     public String task8 = "8.\tПереведите предложение на русский язык";
 
-    public String task8Q = "This is very relaxing.";
+    public String task8Q = "I know a lot of families that have many problems.";
 
-    public String task8A = "это очень расслабляет.";
+    public String task8A = "Я знаю много семей, у которых много проблем.";
 
     public String task9 = "9.\tВерно ли данное утверждение?";
 
-    public String task9Q = "My plan for shopping is ‘quickly in, quickly out’.";
+    public String task9Q = "It seems as though single life was better a generation or two ago.";
 
-    public Boolean task9A = true;
+    public Boolean task9A = false;
 
     public String task10 = "10.\tВерно ли данное утверждение?";
 
-    public String task10Q = "I was happy when online shopping came along.";
+    public String task10Q = "This means single parents have less time to spend with their children, which solves problems.";
 
-    public Boolean task10A = true;
+    public Boolean task10A = false;
 
     @Override
     public String getHint1() {
@@ -277,5 +277,7 @@ public class Shopping extends Task {
     public Boolean getTask10A() {
         return task10A;
     }
+
+
 
 }

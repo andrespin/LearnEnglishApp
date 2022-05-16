@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Themes implements IThemes{
 
-
     @Override
     public ArrayList<String> getThemes() {
         ArrayList<String> themes = new ArrayList<>();

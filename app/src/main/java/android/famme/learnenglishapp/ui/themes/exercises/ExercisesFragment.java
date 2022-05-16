@@ -39,13 +39,8 @@ public class ExercisesFragment extends Fragment {
 
     private String userAnswerBool = null;
 
-    private String rightAnswerBool = null;
-
-    private int exNumber = 1;
-
     @Inject
     INavigator navigator;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,9 +58,12 @@ public class ExercisesFragment extends Fragment {
 
         themeName = getArguments().getString("themeName");
 
-        Task task = model.getThemeTask("personality", getContext());
-        System.out.println("Task: " + task.task1);
-        System.out.println("Task: " + task.getTask1());
+
+
+       // Task task = model.getThemeTask("personality", getContext());
+
+     //   Task task = model.getThemeTask(themeName.toLowerCase(), getContext());
+
         observeViewModel();
         initListeners();
         initTask();
@@ -74,6 +72,7 @@ public class ExercisesFragment extends Fragment {
 
     private void inject() {
         App.instance.appComponent.inject(this);
+        App.instance.appComponent.inject(model);
     }
 
     private void initListeners() {
@@ -237,6 +236,7 @@ public class ExercisesFragment extends Fragment {
         model.eventReturnToThemes.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
+                model.saveResult(themeName);
                 navigator.navigateExercisesToViewPager(view);
             }
         });
@@ -250,9 +250,10 @@ public class ExercisesFragment extends Fragment {
 
     }
 
-
     private void initTask() {
-        task = model.getThemeTask("personality", getContext());
+        task = model.getThemeTask(themeName.toLowerCase(), getContext());
+        System.out.println("task" + task);
+        binding.toolbarTitle.setText("Тема \"" + themeName + "\"");
     }
 
     private void displayResult() {
@@ -265,10 +266,6 @@ public class ExercisesFragment extends Fragment {
         binding.txtTaskQ.setVisibility(View.GONE);
         binding.editTaskA.setVisibility(View.GONE);
         binding.btnNext.setText("вернуться к темам");
-    }
-
-    private void saveResult(String result) {
-
     }
 
     private void initView(View view) {

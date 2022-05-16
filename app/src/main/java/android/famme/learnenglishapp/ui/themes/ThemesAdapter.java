@@ -10,15 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<String> mData = new ArrayList<>();
     private LayoutInflater mInflater;
     private ThemesAdapter.ItemClickListener mClickListener;
 
-    ThemesAdapter(Context context) {
+    public ThemesAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
     }
 
@@ -27,7 +28,7 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
         this.mData = data;
     }
 
-    void setData(List<String> data) {
+    public void setData(List<String> data) {
         this.mData = data;
         notifyDataSetChanged();
     }
@@ -44,14 +45,6 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
         holder.myTextView.setText(str);
     }
 
-    // binds the data to the TextView in each row
-//    @Override
-//    public void onBindViewHolder(android.famme.learnenglishapp.ui.progress.ProgressAdapter.ViewHolder holder, int position) {
-//        String animal = mData.get(position);
-//        holder.myTextView.setText(animal);
-//    }
-
-    // total number of rows
     @Override
     public int getItemCount() {
         return mData.size();

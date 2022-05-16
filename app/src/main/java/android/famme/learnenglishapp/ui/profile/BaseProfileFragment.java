@@ -5,9 +5,13 @@ import android.famme.learnenglishapp.databinding.FragmentProfileBinding;
 import android.famme.learnenglishapp.ui.auth.AuthFragment;
 import android.famme.learnenglishapp.ui.auth.AuthViewModel;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import java.util.List;
 
 abstract class BaseProfileFragment extends Fragment {
 
@@ -28,9 +32,35 @@ abstract class BaseProfileFragment extends Fragment {
         injectFragment(fragment);
     }
 
+    protected void observeViewModel() {
+        model.eventTxtMessage
+                .observe(getViewLifecycleOwner(), new Observer<String>() {
+                    @Override
+                    public void onChanged(String s) {
+                        Toast.makeText(getActivity(), s,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     protected void initListeners(FragmentProfileBinding binding) {
         initBtnLogOutListener(binding);
         initBtnDeleteProfileListener(binding);
+        initBtnChangeProfileListener(binding);
+    }
+
+    private void initBtnChangeProfileListener(FragmentProfileBinding binding) {
+        binding.btnChangeData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.changeData(
+                        binding.txtUserName.getText().toString(),
+                        binding.txtLogin.getText().toString(),
+                        binding.txtPass.getText().toString(),
+                        binding.txtRepeatPass.getText().toString()
+                );
+            }
+        });
     }
 
     private void initBtnDeleteProfileListener(FragmentProfileBinding binding) {

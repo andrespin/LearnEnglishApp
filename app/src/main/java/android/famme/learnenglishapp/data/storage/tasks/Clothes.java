@@ -1,11 +1,9 @@
 package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 
-public class Shopping extends Task {
-
-    public Shopping(Context context) {
+public class Clothes extends Task {
+    public Clothes(Context context) {
         super(context);
     }
 
@@ -13,75 +11,75 @@ public class Shopping extends Task {
 
     public String hint1 = "Введите пропущенный фрагмент...";
 
-    public String task1Q = "Shopping must be one of the world’s _____________ hobbies.";
+    public String task1Q = "I have ______________________ clothes.";
 
-    public String task1A = "most popular";
+    public String task1A = "too many";
 
     public String task2 = "2.  Восстановите пропуски в предложении";
 
     public String hint2 = "Введите пропущенный фрагмент...";
 
-    public String task2Q = "I know a lot of people who like window shopping – just _____________________ without wanting to buy anything.";
+    public String task2Q = "The ______________________ I love clothes and I love shopping.";
 
-    public String task2A = "walking around shops";
+    public String task2A = "simple truth is";
 
     public String hint3 = "Введите исправленное предложение...";
 
     public String task3 = "3.\tВосстановите порядок слов в предложении";
 
-    public String task3Q = " <u>nothing There’s than boring more</u> wandering around shopping malls.";
+    public String task3Q = " <u>have I only I’ve clothes many</u> worn once.";
 
-    public String task3A = "There’s nothing more boring than wandering around shopping malls.";
+    public String task3A = "I have many clothes I’ve only worn once.";
 
     public String hint4 = "Введите исправленное предложение...";
 
     public String task4 = "4.\tВосстановите порядок слов в предложении";
 
-    public String task4Q = "<u>is shopping go to time worst The on</u> a Saturday afternoon during sale season.";
+    public String task4Q = " <u>sure I’m so need don’t I</u> many clothes.";
 
-    public String task4A = "The worst time to go shopping is on a Saturday afternoon during sale season.";
+    public String task4A = "I’m sure I don’t need so many clothes.";
 
     public String hint5 = "Введите исправленное слово...";
 
     public String task5 = "5.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task5Q = "What a <u>etasw</u> of time.";
+    public String task5Q = " Sometimes I even find something at the back of a <u>wardre</u> that I never even wore.";
 
-    public String task5A = "waste";
+    public String task5A = "drawer";
 
     public String hint6 = "Введите исправленное слово...";
 
     public String task6 = "6.\tИсправьте выделенное слово так, чтобы оно стало верным";
 
-    public String task6Q = "If I have to go shopping, I go in the morning on a <u>awdekye</u>.";
+    public String task6Q = "I’m sure I’d be a lot <u>eirchr</u> if I didn’t buy so many clothes.";
 
-    public String task6A = "waste";
+    public String task6A = "richer";
 
     public String hint7 = "Введите перевод...";
 
     public String task7 = "7.\tПереведите предложение на русский язык";
 
-    public String task7Q = "I was happy when online shopping came along";
+    public String task7Q = "I have many clothes I’ve only worn once.";
 
-    public String task7A = "Я был счастлив, когда появился интернет-шопинг.";
+    public String task7A = "У меня есть много одежды, которую я надевал всего один раз.";
 
     public String hint8 = "Введите перевод...";
 
     public String task8 = "8.\tПереведите предложение на русский язык";
 
-    public String task8Q = "This is very relaxing.";
+    public String task8Q = "That’s way too embarrassing.";
 
-    public String task8A = "это очень расслабляет.";
+    public String task8A = "Это слишком неловко.";
 
     public String task9 = "9.\tВерно ли данное утверждение?";
 
-    public String task9Q = "My plan for shopping is ‘quickly in, quickly out’.";
+    public String task9Q = "The simple truth is I hate clothes and I hate shopping.";
 
-    public Boolean task9A = true;
+    public Boolean task9A = false;
 
     public String task10 = "10.\tВерно ли данное утверждение?";
 
-    public String task10Q = "I was happy when online shopping came along.";
+    public String task10Q = "Maybe I have a problem.";
 
     public Boolean task10A = true;
 
@@ -130,7 +128,6 @@ public class Shopping extends Task {
         return hint3;
     }
 
-
     @Override
     public String getTask3() {
         return task3;
@@ -140,7 +137,6 @@ public class Shopping extends Task {
     public String getTask3Q() {
         return task3Q;
     }
-
 
     @Override
     public String getTask3A() {
