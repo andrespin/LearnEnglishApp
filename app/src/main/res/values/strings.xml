@@ -21,4 +21,51 @@
         <u>Нажмите если забыли пароль</u>
     </string>
 
+
+    <!--    personality-->
+
+    <string name="personality_task1">1.   Восстановите пропуски в предложении:</string>
+    <string name="personality_task1Q">What _____________________ do you have?</string>
+    <string name="personality_task1A">kind of personality</string>
+
+    <string name="personality_task2">2.   Восстановите пропуски в предложении:</string>
+    <string name="personality_task2Q">My own _____________________ a lot over the years.</string>
+    <string name="personality_task2A">personality has changed.</string>
+
+    <string name="personality_task3">3.   Восстановите порядок слов в предложении:</string>
+    <!--    <string name="personality_task3Q">The <u>of friends rubbed personalities my have off</u> on me, which I’m happy about.</string>-->
+
+    <string name="personality_task3A">The personalities of my friends have rubbed off on me, which I’m happy about</string>
+
+    <string name="personality_task3Q">The <font color='red'>of friends rubbed personalities my have off</font> on me, which I’m happy about.</string>
+    <!--    "<font color='red'>"+textToHighlight+"</font>"-->
+
+    <string name="personality_task4">4.	Восстановите порядок слов в предложении:</string>
+    <string name="personality_task4Q">I have <u>learned let people be how my and with to</u> true character shine.</string>
+    <string name="personality_task4A">I have learned how to be with people and let my true character shine.</string>
+
+    <string name="personality_task5">5.	Исправьте выделенное слово так, чтобы оно стало верным:</string>
+    <string name="personality_task5Q">I think it’s very interesting to <u>peoerxl</u> personality.</string>
+    <string name="personality_task5A">explore</string>
+
+
+    <string name="personality_task6">6.	Исправьте выделенное слово так, чтобы оно стало верным:</string>
+    <string name="personality_task6Q">I was painfully shy, but now I’m brimming with <u>cdfnoienec</u>.</string>
+    <string name="personality_task6A">confidence</string>
+
+    <string name="personality_task7">7.	Переведите предложение на русский язык:</string>
+    <string name="personality_task7Q">Do you ever think about your personality?</string>
+    <string name="personality_task7A">Вы когда-нибудь задумывались о своей личности?</string>
+
+
+    <string name="personality_task8">8.	Переведите предложение на русский язык:</string>
+    <string name="personality_task8Q">I might take some personality tests and see what they say about me.</string>
+    <string name="personality_task8A">Я мог бы пройти несколько личностных тестов и посмотреть, что они скажут обо мне.</string>
+
+    <string name="personality_task9">9.	Верно ли данное утверждение?</string>
+    <string name="personality_task9Q">When I was a child, I was perfectly shy, but now I’m brimming with confidence.</string>
+
+    <string name="personality_task10">10.	Верно ли данное утверждение?</string>
+    <string name="personality_task10Q">There are parts of my personality I’m not too happy with.</string>
+
 </resources>

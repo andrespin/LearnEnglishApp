@@ -45,6 +45,18 @@
         android:id="@+id/theme"
         android:name="android.famme.learnenglishapp.ui.themes.theme.ThemeFragment"
         tools:layout="@layout/fragment_theme">
+        <action
+            android:id="@+id/action_theme_to_exercises"
+            app:destination="@id/exercises" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/exercises"
+        android:name="android.famme.learnenglishapp.ui.themes.exercises.ExercisesFragment"
+        tools:layout="@layout/fragment_exercises">
+
+    </fragment>
+
 
 </navigation>

@@ -13,12 +13,14 @@ public interface INavigator {
 
     void navigateMainAppToAuth(View view);
 
-    void navigateThemesToTheme(View view, String themeName);
-
-    void navigateThemeToThemes(View view);
-
     void navigateViewPagerToTheme(View view, String themeName);
 
     void navigateThemeToViewPager(View view);
+
+    void navigateThemeToExercises(View view, String themeName);
+
+    void navigateExercisesToTheme(View view, String themeName);
+
+    void navigateExercisesToViewPager(View view);
 
 }

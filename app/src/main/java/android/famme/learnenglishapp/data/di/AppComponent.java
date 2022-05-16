@@ -10,6 +10,7 @@ import android.famme.learnenglishapp.ui.progress.ProgressFragment;
 import android.famme.learnenglishapp.ui.splash.SplashFragment;
 import android.famme.learnenglishapp.ui.themes.ThemesFragment;
 import android.famme.learnenglishapp.ui.themes.ThemesViewModel;
+import android.famme.learnenglishapp.ui.themes.exercises.ExercisesFragment;
 import android.famme.learnenglishapp.ui.themes.theme.ThemeFragment;
 
 import javax.inject.Singleton;
@@ -26,6 +27,8 @@ import dagger.Component;
         }
 )
 public interface AppComponent {
+
+    void inject(ExercisesFragment exercisesFragment);
 
     void inject(ProgressFragment progressFragment);
 

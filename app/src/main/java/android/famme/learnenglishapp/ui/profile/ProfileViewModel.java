@@ -20,6 +20,11 @@ public class ProfileViewModel extends ViewModel {
     @Inject
     INavigator navigator;
 
+
+    public void setNewData() {
+
+    }
+
     public void deleteProfile(View view) {
         iPrefs.deleteLoginAndPass();
         authFirebase.deleteUser();

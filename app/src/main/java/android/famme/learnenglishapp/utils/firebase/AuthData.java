@@ -9,8 +9,6 @@ public class AuthData {
     private String name = "";
     private AuthEvent authEvent;
 
-
-
     public AuthData(String email, String pass, String name ,AuthEvent authEvent, String msg) {
         this.pass = pass;
         this.email = email;

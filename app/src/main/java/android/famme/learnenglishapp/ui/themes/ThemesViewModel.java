@@ -15,11 +15,7 @@ public class ThemesViewModel extends ViewModel {
     IThemes themes;
 
     ArrayList<String> getThemes() {
-
         ArrayList<String> l = new ArrayList<>();
-     //   System.out.println("themes.getThemes() " + themes.getThemes());
-              //  themes.getThemes();
-
         return new Themes().getThemes();
     }
 

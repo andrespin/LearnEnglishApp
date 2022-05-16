@@ -2,25 +2,24 @@ package android.famme.learnenglishapp.ui.themes.theme;
 
 import android.famme.learnenglishapp.App;
 import android.famme.learnenglishapp.databinding.FragmentThemeBinding;
-import android.famme.learnenglishapp.databinding.FragmentThemesBinding;
+import android.famme.learnenglishapp.ui.themes.exercises.ExercisesViewModel;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.famme.learnenglishapp.R;
-import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
-import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -29,7 +28,17 @@ public class ThemeFragment extends Fragment {
     FragmentThemeBinding binding;
 
     public static final String TAG = "ThemeFragment";
-    public static final int MEDIA_RES_ID = R.raw.personality;
+    private int MEDIA_RES_ID = 0;
+
+    // public static final int _MEDIA_RES_ID = R.raw.shopping;
+
+    private ThemeViewModel model;
+
+
+    private Boolean isPlaying = false;
+
+    private String themeName;
+
 
     private TextView mTextDebug;
     private SeekBar mSeekbarAudio;
@@ -58,60 +67,65 @@ public class ThemeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         System.out.println("Theme fragment");
         initView(view);
+        initViewModel();
+        observeViewModel();
         App.instance.appComponent.inject(this);
-        String themeName = getArguments().getString("themeName");
+        themeName = getArguments().getString("themeName");
+        String l = themeName.toLowerCase();
+        System.out.println("themeName: " + themeName);
+        model.getAudioRoad(l);
         binding.toolbarTitle.setText("Тема \"" + themeName + "\"");
+
+        initListeners();
+        initializeUI();
+        initializeSeekbar();
+        initializePlaybackController();
+    }
+
+    private void initListeners() {
         binding.mainToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigator.navigateThemeToViewPager(view);
             }
         });
-        initializeUI();
-        initializeSeekbar();
-        initializePlaybackController();
+
+        binding.btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigator.navigateThemeToExercises(view, themeName);
+            }
+        });
     }
+
+    private void observeViewModel() {
+        model.eventGetRoad.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer i) {
+                MEDIA_RES_ID = i;
+                mPlayerAdapter.loadMedia(MEDIA_RES_ID);
+                Log.d(TAG, "getResourse");
+            }
+        });
+    }
+
 
     @Override
     public void onStart() {
         super.onStart();
-        mPlayerAdapter.loadMedia(MEDIA_RES_ID);
         Log.d(TAG, "onStart: create MediaPlayer");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        isChangingConfigurations()
-        if ( mPlayerAdapter.isPlaying()) {
+        if (mPlayerAdapter.isPlaying()) {
             Log.d(TAG, "onStop: don't release MediaPlayer as screen is rotating & playing");
         } else {
             mPlayerAdapter.release();
             Log.d(TAG, "onStop: release MediaPlayer");
         }
     }
-
-    /*
-        @Override
-    protected void onStart() {
-        super.onStart();
-        mPlayerAdapter.loadMedia(MEDIA_RES_ID);
-        Log.d(TAG, "onStart: create MediaPlayer");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (isChangingConfigurations() && mPlayerAdapter.isPlaying()) {
-            Log.d(TAG, "onStop: don't release MediaPlayer as screen is rotating & playing");
-        } else {
-            mPlayerAdapter.release();
-            Log.d(TAG, "onStop: release MediaPlayer");
-        }
-    }
-     */
-
-
 
 
     private void initializePlaybackController() {
@@ -123,32 +137,21 @@ public class ThemeFragment extends Fragment {
     }
 
     private void initializeUI() {
-        mTextDebug = binding.textDebug;
-        Button mPlayButton = binding.buttonPlay;
-        Button mPauseButton = binding.buttonPause;
-        Button mResetButton = binding.buttonReset;
         mSeekbarAudio = binding.seekbarAudio;
-        mScrollContainer = binding.scrollContainer;
 
-        mPauseButton.setOnClickListener(
+        binding.imgSpeaker.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        mPlayerAdapter.pause();
-                    }
-                });
-        mPlayButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mPlayerAdapter.play();
-                    }
-                });
-        mResetButton.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        mPlayerAdapter.reset();
+                        if (isPlaying) {
+                            isPlaying = false;
+                            mPlayerAdapter.pause();
+                            binding.imgSpeaker.setImageResource(R.drawable.ic_round_black);
+                        } else {
+                            isPlaying = true;
+                            mPlayerAdapter.play();
+                            binding.imgSpeaker.setImageResource(R.drawable.ic_round_color);
+                        }
                     }
                 });
     }
@@ -182,6 +185,12 @@ public class ThemeFragment extends Fragment {
         this._view = view;
     }
 
+
+    private void initViewModel() {
+        model = new ViewModelProvider(this).get(ThemeViewModel.class);
+    }
+
+
     public class PlaybackListener extends PlaybackInfoListener {
 
         @Override
@@ -210,19 +219,9 @@ public class ThemeFragment extends Fragment {
 
         @Override
         public void onLogUpdated(String message) {
-            if (mTextDebug != null) {
-                mTextDebug.append(message);
-                mTextDebug.append("\n");
-                // Moves the scrollContainer focus to the end.
-                mScrollContainer.post(
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                mScrollContainer.fullScroll(ScrollView.FOCUS_DOWN);
-                            }
-                        });
-            }
+
         }
+
     }
 
 }

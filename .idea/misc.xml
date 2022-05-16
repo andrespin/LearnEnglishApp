@@ -17,13 +17,18 @@
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_arrow_left_svgrepo_com.xml" value="0.127" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_eye_hide.xml" value="0.102" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_eye_show.xml" value="0.102" />
+        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_round_black.xml" value="0.1185" />
+        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_round_color.xml" value="0.1185" />
+        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_speaker.xml" value="0.1185" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_themes.xml" value="0.1205" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/drawable/ic_user_profile.xml" value="0.121" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/auth_layout.xml" value="0.125" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_auth.xml" value="0.125" />
-        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_profile.xml" value="0.165" />
+        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_exercises.xml" value="0.165" />
+        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_profile.xml" value="0.125" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_progress.xml" value="0.22239583333333332" />
+        <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_result.xml" value="0.166796875" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_splash.xml" value="0.166796875" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_theme.xml" value="0.125" />
         <entry key="..\:/2Order/LearnEnglishApp/app/src/main/res/layout/fragment_themes.xml" value="0.125" />

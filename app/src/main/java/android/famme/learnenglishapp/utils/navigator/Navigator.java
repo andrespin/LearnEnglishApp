@@ -34,19 +34,6 @@ public class Navigator implements INavigator {
     }
 
     @Override
-    public void navigateThemesToTheme(View view, String themeName) {
-//        Bundle bundle = new Bundle();
-//        bundle.putString("themeName", themeName);
-//        Navigation.findNavController(view).navigate(R.id.theme);
-    }
-
-    @Override
-    public void navigateThemeToThemes(View view) {
-//        Navigation.findNavController(view).popBackStack(R.id.theme, true);
-//        Navigation.findNavController(view).navigate(R.id.themes);
-    }
-
-    @Override
     public void navigateViewPagerToTheme(View view, String themeName) {
         Bundle bundle = new Bundle();
         bundle.putString("themeName", themeName);
@@ -56,6 +43,28 @@ public class Navigator implements INavigator {
     @Override
     public void navigateThemeToViewPager(View view) {
         Navigation.findNavController(view).popBackStack(R.id.theme, true);
+        Navigation.findNavController(view).navigate(R.id.view_pager);
+    }
+
+    @Override
+    public void navigateThemeToExercises(View view, String themeName) {
+        Bundle bundle = new Bundle();
+        bundle.putString("themeName", themeName);
+        Navigation.findNavController(view).popBackStack(R.id.theme, true);
+        Navigation.findNavController(view).navigate(R.id.exercises, bundle);
+    }
+
+    @Override
+    public void navigateExercisesToTheme(View view, String themeName) {
+        Bundle bundle = new Bundle();
+        bundle.putString("themeName", themeName);
+        Navigation.findNavController(view).popBackStack(R.id.exercises, true);
+        Navigation.findNavController(view).navigate(R.id.theme, bundle);
+    }
+
+    @Override
+    public void navigateExercisesToViewPager(View view) {
+        Navigation.findNavController(view).popBackStack(R.id.exercises, true);
         Navigation.findNavController(view).navigate(R.id.view_pager);
     }
 
