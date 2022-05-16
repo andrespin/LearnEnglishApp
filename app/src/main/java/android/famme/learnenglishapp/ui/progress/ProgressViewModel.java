@@ -1,8 +1,10 @@
 package android.famme.learnenglishapp.ui.progress;
 
 import android.annotation.SuppressLint;
+import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.data.storage.room.ResultDao;
 import android.famme.learnenglishapp.data.storage.room.ResultEntity;
+import android.famme.learnenglishapp.utils.converter.IConverter;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -28,16 +30,25 @@ public class ProgressViewModel extends ViewModel {
     @Inject
     ResultDao resultDao;
 
+    @Inject
+    IPreferences prefs;
+
+    @Inject
+    IConverter converter;
+
     void getAllResults() {
 
+        String login = prefs.getLogin();
         Completable
                 .complete()
                 .subscribeOn(Schedulers.io())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
-                        List<ResultEntity> results = resultDao.getAll();
-                        eventGetResults.postValue(convertToListStr(results));
+                        ResultEntity result = resultDao.getResultByLogin(login);
+                        eventGetResults.postValue(
+                                converter.convertResultEntityToListOfResults(result)
+                        );
                     }
 
                     @Override
@@ -47,13 +58,5 @@ public class ProgressViewModel extends ViewModel {
                 });
     }
 
-    private ArrayList<String> convertToListStr(List<ResultEntity> resList) {
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < resList.size(); i++) {
-            String str = resList.get(0).theme + " -" + resList.get(0).result + "/10";
-            list.add(str);
-        }
-        return list;
-    }
 
 }

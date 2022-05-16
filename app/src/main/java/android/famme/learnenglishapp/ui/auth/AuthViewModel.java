@@ -136,6 +136,8 @@ public class AuthViewModel extends BaseAuthViewModel {
         System.out.println("iPrefs.getLogin() " + iPrefs.getLogin());
         if (iPrefs.getLogin() != null && !iPrefs.getLogin().equals("")) {
             eventOpenApp.postValue(true);
+        } else {
+            eventShowAuth.postValue(true);
         }
     }
 

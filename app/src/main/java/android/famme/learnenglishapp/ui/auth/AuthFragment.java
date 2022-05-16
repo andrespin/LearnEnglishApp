@@ -1,11 +1,9 @@
 package android.famme.learnenglishapp.ui.auth;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.famme.learnenglishapp.R;
 import android.famme.learnenglishapp.databinding.FragmentAuthBinding;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +18,6 @@ import javax.inject.Inject;
 
 public class AuthFragment extends BaseAuthFragmentListeners {
 
-    AnimationDrawable animation;
-
     @Inject
     INavigator navigator;
 
@@ -35,6 +31,7 @@ public class AuthFragment extends BaseAuthFragmentListeners {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showSplashScreen();
         initView(view);
         initViewModel(this);
         injectViewModel(model);
@@ -46,6 +43,9 @@ public class AuthFragment extends BaseAuthFragmentListeners {
 
     }
 
+    private void showSplashScreen() {
+        binding.splashLayout.getRoot().setVisibility(View.VISIBLE);
+    }
 
     public void hideKeyboardListener() {
         binding.getRoot().setOnClickListener(new View.OnClickListener() {
@@ -165,8 +165,15 @@ public class AuthFragment extends BaseAuthFragmentListeners {
         });
     }
 
-
     private void initViewModelListeners() {
+
+        model.eventShowAuth.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                showMainAuth();
+                showAuthLayout(binding);
+            }
+        });
 
         model.eventShowAuthAfterReg.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
@@ -252,4 +259,12 @@ public class AuthFragment extends BaseAuthFragmentListeners {
             }
         });
     }
+
+    private void showMainAuth() {
+        binding.progressBar.setVisibility(View.INVISIBLE);
+        binding.imageView5.setVisibility(View.VISIBLE);
+        binding.textView5.setVisibility(View.VISIBLE);
+        binding.txtMainInfo.setVisibility(View.INVISIBLE);
+    }
+
 }

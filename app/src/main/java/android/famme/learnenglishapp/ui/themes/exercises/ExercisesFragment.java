@@ -55,15 +55,7 @@ public class ExercisesFragment extends Fragment {
         initViewModel();
         initView(view);
         inject();
-
         themeName = getArguments().getString("themeName");
-
-
-
-       // Task task = model.getThemeTask("personality", getContext());
-
-     //   Task task = model.getThemeTask(themeName.toLowerCase(), getContext());
-
         observeViewModel();
         initListeners();
         initTask();
@@ -121,9 +113,6 @@ public class ExercisesFragment extends Fragment {
     private void observeViewModel() {
 
         model.eventDisplayTask.observe(getViewLifecycleOwner(), new Observer<Integer>() {
-
-            String str;
-            Spanned txt;
 
             @Override
             public void onChanged(Integer integer) {

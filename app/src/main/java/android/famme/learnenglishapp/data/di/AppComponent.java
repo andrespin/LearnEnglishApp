@@ -8,7 +8,6 @@ import android.famme.learnenglishapp.ui.profile.ProfileFragment;
 import android.famme.learnenglishapp.ui.profile.ProfileViewModel;
 import android.famme.learnenglishapp.ui.progress.ProgressFragment;
 import android.famme.learnenglishapp.ui.progress.ProgressViewModel;
-import android.famme.learnenglishapp.ui.splash.SplashFragment;
 import android.famme.learnenglishapp.ui.themes.ThemesFragment;
 import android.famme.learnenglishapp.ui.themes.ThemesViewModel;
 import android.famme.learnenglishapp.ui.themes.exercises.ExercisesFragment;
@@ -44,8 +43,6 @@ public interface AppComponent {
     void inject(ThemesViewModel themesViewModel);
 
     void inject(ThemeFragment themeFragment);
-
-    void inject(SplashFragment splashFragment);
 
     void inject(MainActivity mainActivity);
 

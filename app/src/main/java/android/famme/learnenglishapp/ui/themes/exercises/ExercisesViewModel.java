@@ -2,6 +2,7 @@ package android.famme.learnenglishapp.ui.themes.exercises;
 
 import android.content.Context;
 import android.famme.learnenglishapp.R;
+import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.data.storage.room.ResultDao;
 import android.famme.learnenglishapp.data.storage.room.ResultEntity;
 import android.famme.learnenglishapp.data.storage.tasks.Books;
@@ -15,6 +16,7 @@ import android.famme.learnenglishapp.data.storage.tasks.Personality;
 import android.famme.learnenglishapp.data.storage.tasks.Shopping;
 import android.famme.learnenglishapp.data.storage.tasks.Summer;
 import android.famme.learnenglishapp.data.storage.tasks.Task;
+import android.famme.learnenglishapp.utils.themes.Results;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -45,6 +47,12 @@ public class ExercisesViewModel extends ViewModel {
 
     @Inject
     ResultDao resultDao;
+
+    @Inject
+    IPreferences prefs;
+
+    @Inject
+    Results results;
 
     public Task getThemeTask(String theme, Context context) {
 
@@ -119,14 +127,21 @@ public class ExercisesViewModel extends ViewModel {
     }
 
     public void saveResult(String theme) {
-        String _theme = theme;
-        ResultEntity r = new ResultEntity(_theme, countRightAnswers);
+        String login = prefs.getLogin();
+
         Completable
                 .complete()
                 .subscribeOn(Schedulers.io())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
+                        ResultEntity resultEntity = resultDao.getResultByLogin(login);
+
+                        if (resultEntity == null) {
+                            resultEntity = results.getNewResultEntity(login);
+                        }
+
+                        ResultEntity r = results.setTheme(theme, countRightAnswers, resultEntity);
                         try {
                             resultDao.insert(r);
                             Log.d(tag, "data inserted");
@@ -143,6 +158,7 @@ public class ExercisesViewModel extends ViewModel {
                     }
                 });
     }
+
 
     public int getResult() {
         return countRightAnswers;

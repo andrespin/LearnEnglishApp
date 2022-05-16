@@ -26,4 +26,7 @@ public interface ResultDao {
     @Query("DELETE FROM result")
     void deleteAllResults();
 
+    @Query("SELECT * FROM result WHERE login = :login")
+    ResultEntity getResultByLogin(String login);
+
 }

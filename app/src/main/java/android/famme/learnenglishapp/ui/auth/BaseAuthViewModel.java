@@ -16,16 +16,9 @@ import io.reactivex.rxjava3.disposables.Disposable;
 
 abstract class BaseAuthViewModel extends ViewModel {
 
-    MutableLiveData<Boolean> eventLoading = new MutableLiveData<>();
-
     MutableLiveData<String> eventShowTxtError = new MutableLiveData<>();
 
     MutableLiveData<String> eventShowTxtSuccess = new MutableLiveData<>();
-
-
-    MutableLiveData<View> eventRightRegData = new MutableLiveData<>();
-
-    MutableLiveData<String> eventToastMessage = new MutableLiveData<>();
 
     MutableLiveData<Boolean> eventIncorrectPassFieldError = new MutableLiveData<>();
 
@@ -33,17 +26,11 @@ abstract class BaseAuthViewModel extends ViewModel {
 
     MutableLiveData<String> eventIncorrectLoginResetError = new MutableLiveData<>();
 
-    MutableLiveData<String> eventIncorrectLoginRegError = new MutableLiveData<>();
-
-    MutableLiveData<String> eventIncorrectPassRegError = new MutableLiveData<>();
-
     MutableLiveData<Boolean> eventShowLoading = new MutableLiveData<>();
 
-//    MutableLiveData<Boolean> eventShowResetLoading = new MutableLiveData<>();
-//
-//    MutableLiveData<Boolean> eventShowRegLoading = new MutableLiveData<>();
-
     MutableLiveData<Boolean> eventOpenApp = new MutableLiveData<>();
+
+    MutableLiveData<Boolean> eventShowAuth = new MutableLiveData<>();
 
     Observer<AuthData> observerFirebase = new Observer<AuthData>() {
 
