@@ -30,15 +30,12 @@ public class ThemeFragment extends Fragment {
     public static final String TAG = "ThemeFragment";
     private int MEDIA_RES_ID = 0;
 
-    // public static final int _MEDIA_RES_ID = R.raw.shopping;
-
     private ThemeViewModel model;
 
 
     private Boolean isPlaying = false;
 
     private String themeName;
-
 
     private TextView mTextDebug;
     private SeekBar mSeekbarAudio;
@@ -119,12 +116,7 @@ public class ThemeFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        if (mPlayerAdapter.isPlaying()) {
-            Log.d(TAG, "onStop: don't release MediaPlayer as screen is rotating & playing");
-        } else {
-            mPlayerAdapter.release();
-            Log.d(TAG, "onStop: release MediaPlayer");
-        }
+        mPlayerAdapter.pause();
     }
 
 
@@ -203,6 +195,7 @@ public class ThemeFragment extends Fragment {
         public void onPositionChanged(int position) {
             if (!mUserIsSeeking) {
                 mSeekbarAudio.setProgress(position, true);
+                mSeekbarAudio.getProgress();
                 Log.d(TAG, String.format("setPlaybackPosition: setProgress(%d)", position));
             }
         }

@@ -36,8 +36,4 @@ public class MainInteractor {
                 });
     }
 
-    public void syncDataWithServer() {
-
-    }
-
 }

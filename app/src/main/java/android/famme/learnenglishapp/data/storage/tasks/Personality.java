@@ -111,7 +111,7 @@ public class Personality extends Task {
         return task4;
     }
 
-    public String task4Q = context.getString(R.string.personality_task4Q);
+    public String task4Q = "I have <u>learned let people be how my and with to</u> true character shine.";
 
     @Override
     public String getTask4Q() {
@@ -139,7 +139,7 @@ public class Personality extends Task {
         return task5;
     }
 
-    public String task5Q = context.getString(R.string.personality_task5Q);
+    public String task5Q = "I think it’s very interesting to <u>peoerxl</u> personality.";
 
     @Override
     public String getTask5Q() {
@@ -167,7 +167,7 @@ public class Personality extends Task {
         return task6;
     }
 
-    public String task6Q = context.getString(R.string.personality_task6Q);
+    public String task6Q = "I was painfully shy, but now I’m brimming with <u>cdfnoienec</u>.";
 
     @Override
     public String getTask6Q() {

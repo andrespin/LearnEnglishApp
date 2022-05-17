@@ -1,12 +1,8 @@
 package android.famme.learnenglishapp.ui.auth;
 
-import static android.famme.learnenglishapp.utils.firebase.AuthEvent.LogIn;
-
 import android.famme.learnenglishapp.utils.firebase.AuthData;
 import android.famme.learnenglishapp.utils.firebase.AuthEvent;
 import android.util.Log;
-import android.view.View;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 

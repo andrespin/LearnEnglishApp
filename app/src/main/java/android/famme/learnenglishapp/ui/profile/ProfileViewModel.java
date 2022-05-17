@@ -1,6 +1,5 @@
 package android.famme.learnenglishapp.ui.profile;
 
-import android.app.Activity;
 import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.other.custom_exceptions.TheLoginIsIncorrectlyWrittenException;
 import android.famme.learnenglishapp.other.custom_exceptions.ThePassIsIncorrectlyWrittenException;
@@ -35,10 +34,6 @@ public class ProfileViewModel extends ViewModel {
 
 
     MutableLiveData<String> eventTxtMessage = new MutableLiveData<>();
-
-    public void setNewData() {
-
-    }
 
     public void changeData(String name, String login, String pass, String repeatPass) {
         try {
@@ -79,7 +74,6 @@ public class ProfileViewModel extends ViewModel {
     public void logOut(View view) {
         iPrefs.deleteLoginAndPass();
         authFirebase.signOut();
-        interactor.deleteAllData();
         navigator.navigateMainAppToAuth(view);
     }
 

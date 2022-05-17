@@ -261,6 +261,7 @@ public class AuthFragment extends BaseAuthFragmentListeners {
     }
 
     private void showMainAuth() {
+        binding.splashLayout.getRoot().setVisibility(View.GONE);
         binding.progressBar.setVisibility(View.INVISIBLE);
         binding.imageView5.setVisibility(View.VISIBLE);
         binding.textView5.setVisibility(View.VISIBLE);

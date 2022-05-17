@@ -7,6 +7,10 @@ public class ResultsSetter implements Results {
     @Override
     public ResultEntity setTheme(String theme, int result, ResultEntity resultEntity) {
 
+        if (result > 0) {
+            result--;
+        }
+
         String res = theme + " -" + result + "/10";
 
         System.out.println("setTheme " + theme);

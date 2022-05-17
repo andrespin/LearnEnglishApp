@@ -5,8 +5,11 @@ import android.famme.learnenglishapp.databinding.FragmentAuthBinding;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Scheduler;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
@@ -17,6 +20,7 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
         Completable
                 .complete()
                 .delay(200, TimeUnit.MILLISECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -41,6 +45,7 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
         Completable
                 .complete()
                 .delay(200, TimeUnit.MILLISECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -71,6 +76,7 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
         Completable
                 .complete()
                 .delay(200, TimeUnit.MILLISECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -97,6 +103,7 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
         Completable
                 .complete()
                 .delay(200, TimeUnit.MILLISECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -121,6 +128,7 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
         Completable
                 .complete()
                 .delay(200, TimeUnit.MILLISECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -157,6 +165,7 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
         Completable
                 .complete()
                 .delay(200, TimeUnit.MILLISECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableCompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -172,8 +181,6 @@ abstract class BaseAuthFragmentListeners extends BaseAuthFragmentInit {
                         e.printStackTrace();
                     }
                 });
-
     }
-
 
 }

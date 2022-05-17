@@ -89,5 +89,4 @@ abstract class BaseProfileFragment extends Fragment {
         App.instance.appComponent.inject(fragment);
     }
 
-
 }

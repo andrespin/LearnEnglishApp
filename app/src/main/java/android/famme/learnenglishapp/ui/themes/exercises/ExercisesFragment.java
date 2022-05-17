@@ -1,5 +1,6 @@
 package android.famme.learnenglishapp.ui.themes.exercises;
 
+import android.content.Context;
 import android.famme.learnenglishapp.App;
 import android.famme.learnenglishapp.R;
 import android.famme.learnenglishapp.databinding.FragmentExercisesBinding;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.famme.learnenglishapp.data.storage.tasks.Task;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.RadioGroup;
 
 import javax.inject.Inject;
@@ -53,6 +55,7 @@ public class ExercisesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViewModel();
+        hideKeyboardListener();
         initView(view);
         inject();
         themeName = getArguments().getString("themeName");
@@ -121,6 +124,8 @@ public class ExercisesFragment extends Fragment {
 
                     case 1:
                         rightAnswer = task.getTask1A();
+                        binding.txtTask.setVisibility(View.VISIBLE);
+                        binding.txtTaskQ.setVisibility(View.VISIBLE);
                         binding.editTaskA.setVisibility(View.VISIBLE);
                         binding.radioGroup.setVisibility(View.GONE);
                         binding.txtTask.setText(task.getTask1());
@@ -261,8 +266,18 @@ public class ExercisesFragment extends Fragment {
         this.view = view;
     }
 
-    protected void initViewModel() {
+    private void initViewModel() {
         model = new ViewModelProvider(this).get(ExercisesViewModel.class);
     }
 
+    private void hideKeyboardListener() {
+        binding.getRoot().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager)
+                        getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
+    }
 }
