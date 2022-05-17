@@ -25,6 +25,12 @@ import android.widget.RadioGroup;
 
 import javax.inject.Inject;
 
+
+/**
+ * Фрагмент предназначен для отображения задании, класс с заданиями
+ * мы полочием с помощью model.getThemeTask(themeName.toLowerCase(), getContext());
+ */
+
 public class ExercisesFragment extends Fragment {
 
     FragmentExercisesBinding binding;
@@ -246,7 +252,6 @@ public class ExercisesFragment extends Fragment {
 
     private void initTask() {
         task = model.getThemeTask(themeName.toLowerCase(), getContext());
-        System.out.println("task" + task);
         binding.toolbarTitle.setText("Тема \"" + themeName + "\"");
     }
 

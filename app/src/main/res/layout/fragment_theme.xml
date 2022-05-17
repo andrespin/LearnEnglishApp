@@ -94,5 +94,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekbar_audio" />
 
+    <include
+        android:id="@+id/auth_layout"
+        layout="@layout/link_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

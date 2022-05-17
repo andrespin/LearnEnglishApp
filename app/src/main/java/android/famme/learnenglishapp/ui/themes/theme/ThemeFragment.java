@@ -2,16 +2,13 @@ package android.famme.learnenglishapp.ui.themes.theme;
 
 import android.famme.learnenglishapp.App;
 import android.famme.learnenglishapp.databinding.FragmentThemeBinding;
-import android.famme.learnenglishapp.ui.themes.exercises.ExercisesViewModel;
 import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +20,27 @@ import android.widget.TextView;
 
 import javax.inject.Inject;
 
+
+/**
+ * Данный фрагмент предназначен для проигрывания аудио, чтобы
+ * понять для какой темы нужно проигрывать аудиодорожку,
+ * вызывается команда model.getAudioRoad(themeName), где themeName - тема,
+ * для которой нужно выбрать аудиодорожку.
+ * В методе observeViewModel() подписываемся на объект LiveData, находящийся в
+ * классе ViewModel, перемнная Integer i содержит в себе ссылку на нужную аудиодорожку:
+ *
+ *     private void observeViewModel() {
+ *         model.eventGetRoad.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+ *             @Override
+ *             public void onChanged(Integer i) {
+ *                 MEDIA_RES_ID = i;
+ *                 mPlayerAdapter.loadMedia(MEDIA_RES_ID);
+ *                 Log.d(TAG, "getResourse");
+ *             }
+ *         });
+ *     }
+ */
+
 public class ThemeFragment extends Fragment {
 
     FragmentThemeBinding binding;
@@ -31,7 +49,6 @@ public class ThemeFragment extends Fragment {
     private int MEDIA_RES_ID = 0;
 
     private ThemeViewModel model;
-
 
     private Boolean isPlaying = false;
 

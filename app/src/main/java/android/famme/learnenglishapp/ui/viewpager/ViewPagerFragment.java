@@ -19,6 +19,14 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import javax.inject.Inject;
 
+
+/**
+ * Класс ViewPagerFragment отображает в TabLayout
+ * икноки: фрагмента профиля, фрагмента со списком тем и фрагмента со
+ * списком тем с прогрессом. Во ViewPager отображаются фрагменты,
+ * навигация между которыми обеспечивается с помощью свайпа влево-вправо.
+ */
+
 public class ViewPagerFragment extends Fragment {
 
     public static ViewPager2 viewPager;
@@ -32,7 +40,6 @@ public class ViewPagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_view_pager, container, false);
     }
 
@@ -40,27 +47,15 @@ public class ViewPagerFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init();
-        System.out.println("viewPager.getCurrentItem() :" + viewPager.getCurrentItem());
-
         viewPager.setCurrentItem(1, false);
-
     }
 
     private void init() {
-
         viewPager = getActivity().findViewById(R.id.mypager);
-
         pagerAdapter = new ViewPagerAdapter(getActivity());
-
-        System.out.println("viewPager " + viewPager);
-
-        System.out.println("pagerAdapter " + pagerAdapter);
-
         viewPager.setAdapter(pagerAdapter);
-
         TabLayout tabLayout = (TabLayout) getActivity().findViewById(R.id.tab_layout);
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setIcon(icons[position])).attach();
-
     }
 
 }

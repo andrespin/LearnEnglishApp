@@ -17,18 +17,3 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--<TextView-->
-<!--android:id="@+id/textView"-->
-<!--android:layout_width="250dp"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_marginLeft="40dp"-->
-<!--android:layout_marginTop="150dp"-->
-<!--android:layout_marginRight="40dp"-->
-<!--android:text="Стоимость данной работы 18 т.р.,-->
-<!--         чтобы убрать эту надпись необходимо оплатить работу.-->
-<!--          Просьба уважать труд других людей. Спасибо за понимание "-->
-<!--android:textColor="@color/red"-->
-<!--android:textSize="24sp"-->
-<!--app:layout_constraintEnd_toEndOf="parent"-->
-<!--app:layout_constraintStart_toStartOf="parent"-->
-<!--app:layout_constraintTop_toTopOf="parent" />-->

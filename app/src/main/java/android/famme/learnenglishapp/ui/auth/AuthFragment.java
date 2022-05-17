@@ -9,12 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
 import javax.inject.Inject;
+
+
+/**
+ * При запуске приложения неавторизированный пользователь видит экран
+ * фрагмента AuthFragment, если выясняется, что пользователь авторизирован,
+ * то у него отображается фрагмент ViewPagerFragment.
+ * Пока приложение выяснет авторизирован или нет пользователь,
+ * высвечивается SplashScreen с главным изображением.
+ * Когда пользователь нажимает на кнопку Регистрации или надпись "Нажмите если забыл пароль", он
+ * видит перед собой другой layout, а предыдущий становится невидимым.
+ */
 
 public class AuthFragment extends BaseAuthFragmentListeners {
 
