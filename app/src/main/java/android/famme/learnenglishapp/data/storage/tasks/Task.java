@@ -2,6 +2,11 @@ package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
 
+/**
+ * Класс, от которого наследуются классы с темами,
+ * к классу Books сверху даны подобные комментарии.
+ */
+
 public class Task {
 
     Context context;

@@ -2,6 +2,20 @@ package android.famme.learnenglishapp.data.storage.tasks;
 
 import android.content.Context;
 
+/**
+ * Тут записаны 10 задании к теме Books, другие классы работают аналогично.
+ * ВНИМАНИЕ: При необъодимости тут можно скорректировать тексты заданий!
+ * task1 - это текст самого задания, 1 - номер задания;
+ * hint1 - это текст к подсказке, которая высвечивается в поле ввода;
+ * task1Q - это вопрос к задани;
+ * task1A - это ответ к заданию
+ *
+ *Остальные задания абсолютно одинаковы, за исключением 2 последних,
+ * в 2 последних нету переменной hint, а переменные с ответами task9A и
+ * task10A имеют тип Boolean, которому можно присвоить только true или false;
+ *
+ */
+
 public class Books extends Task {
     public Books(Context context) {
         super(context);
@@ -46,7 +60,6 @@ public class Books extends Task {
     public String task5Q = "Novels are great for getting to know other worlds and <u>ustrcleu</u>.";
 
     public String task5A = "cultures";
-
 
     public String hint6 = "Введите исправленное слово...";
 
