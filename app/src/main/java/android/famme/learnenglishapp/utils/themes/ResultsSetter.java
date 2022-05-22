@@ -57,16 +57,16 @@ public class ResultsSetter implements Results {
     public ResultEntity getNewResultEntity(String login) {
         return new ResultEntity(
                 login,
-                "Personality -0/0",
-                "Shopping -0/0",
-                "Education -0/0",
-                "Family -0/0",
-                "Lifestyle -0/0",
-                "Clothes -0/0",
-                "Books -0/0",
-                "Culture -0/0",
-                "Life -0/0",
-                "Summer -0/0"
+                "Personality -0/10",
+                "Shopping -0/10",
+                "Education -0/10",
+                "Family -0/10",
+                "Lifestyle -0/10",
+                "Clothes -0/10",
+                "Books -0/10",
+                "Culture -0/10",
+                "Life -0/10",
+                "Summer -0/10"
         );
     }
 }

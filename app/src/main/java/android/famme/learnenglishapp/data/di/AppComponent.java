@@ -8,6 +8,7 @@ import android.famme.learnenglishapp.ui.profile.ProfileFragment;
 import android.famme.learnenglishapp.ui.profile.ProfileViewModel;
 import android.famme.learnenglishapp.ui.progress.ProgressFragment;
 import android.famme.learnenglishapp.ui.progress.ProgressViewModel;
+import android.famme.learnenglishapp.ui.progress.graph.GraphFragment;
 import android.famme.learnenglishapp.ui.themes.ThemesFragment;
 import android.famme.learnenglishapp.ui.themes.ThemesViewModel;
 import android.famme.learnenglishapp.ui.themes.exercises.ExercisesFragment;
@@ -29,6 +30,8 @@ import dagger.Component;
         }
 )
 public interface AppComponent {
+
+    void inject(GraphFragment graphFragment);
 
     void inject(ExercisesViewModel exercisesViewModel);
 

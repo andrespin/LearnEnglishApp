@@ -41,6 +41,14 @@ android {
     }
 }
 
+//packagingOptions {
+//    exclude 'META-INF/proguard/androidx-annotations.pro'
+//}
+//
+//repositories {
+//    maven { url 'https://jitpack.io' }
+//}
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -51,7 +59,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+    implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
 
+//    implementation 'com.jjoe64:graphview:4.2.2'
+
+//    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+//    implementation 'org.hogel:line-chart-view:0.2.1-SNAPSHOT'
 
     // Библиотека навигации из Android jetpack
     implementation 'androidx.navigation:navigation-fragment:2.4.2'

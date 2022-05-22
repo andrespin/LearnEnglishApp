@@ -1,10 +1,12 @@
 package android.famme.learnenglishapp.utils.converter;
 
 import android.famme.learnenglishapp.data.storage.room.ResultEntity;
+import android.famme.learnenglishapp.ui.progress.graph.ResultsData;
 
 import java.util.ArrayList;
 
-public class Converter implements IConverter{
+public class Converter implements IConverter {
+
     @Override
     public ArrayList<String> convertResultEntityToListOfResults(ResultEntity resultEntity) {
         ArrayList<String> list = new ArrayList<>();

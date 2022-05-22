@@ -58,5 +58,11 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/graph"
+        android:name="android.famme.learnenglishapp.ui.progress.graph.GraphFragment"
+        tools:layout="@layout/fragment_graph">
+
+    </fragment>
 
 </navigation>

@@ -3,6 +3,7 @@ package android.famme.learnenglishapp.data.storage.tasks;
 import android.content.Context;
 
 public class Summer extends Task {
+
     public Summer(Context context) {
         super(context);
     }

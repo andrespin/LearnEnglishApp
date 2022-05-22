@@ -55,4 +55,14 @@ public class Navigator implements INavigator {
         Navigation.findNavController(view).navigate(R.id.view_pager);
     }
 
+    @Override
+    public void navigateViewPagerToGraph(View view) {
+        Navigation.findNavController(view).navigate(R.id.graph);
+    }
+
+    @Override
+    public void navigateGraphToViewPager(View view) {
+        Navigation.findNavController(view).navigate(R.id.view_pager);
+    }
+
 }

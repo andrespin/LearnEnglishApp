@@ -56,6 +56,7 @@ public interface IAuthFirebase {
 
     /**
      * @param email Сброс пароля
+     * https://firebase.google.com/docs/auth/android/manage-users
      */
 
     void resetPass(String email);

@@ -32,11 +32,11 @@ abstract class AuthCheckerTools {
 
         System.out.println(login);
 
+        // && !isPointFound
         for (int i = 0; i < ch.length; i++) {
             System.out.print(ch[i] + " ");
-            if (ch[i] == '@' && !isPointFound) {
+            if (ch[i] == '@' ) {
                 isAtSignFoundFirst = true;
-
             }
 
             if (ch[i] == '.') {

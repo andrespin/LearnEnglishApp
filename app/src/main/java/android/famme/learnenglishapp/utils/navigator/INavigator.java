@@ -19,4 +19,8 @@ public interface INavigator {
 
     void navigateExercisesToViewPager(View view);
 
+    void navigateViewPagerToGraph(View view);
+
+    void navigateGraphToViewPager(View view);
+
 }

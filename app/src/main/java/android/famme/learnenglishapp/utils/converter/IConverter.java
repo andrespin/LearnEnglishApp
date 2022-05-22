@@ -15,4 +15,5 @@ public interface IConverter {
 
     ArrayList<String> convertResultEntityToListOfResults(ResultEntity resultEntity);
 
+
 }

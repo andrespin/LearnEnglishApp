@@ -6,6 +6,7 @@ import android.famme.learnenglishapp.data.storage.themes.IThemes;
 import android.famme.learnenglishapp.databinding.FragmentProgressBinding;
 import android.famme.learnenglishapp.ui.themes.ThemesAdapter;
 import android.famme.learnenglishapp.ui.themes.exercises.ExercisesViewModel;
+import android.famme.learnenglishapp.utils.navigator.INavigator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,9 @@ public class ProgressFragment extends Fragment implements ProgressAdapter.ItemCl
     @Inject
     IThemes themes;
 
+    @Inject
+    INavigator navigator;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProgressBinding.inflate(inflater, container, false);
@@ -49,6 +53,16 @@ public class ProgressFragment extends Fragment implements ProgressAdapter.ItemCl
         initAdapter();
         observeViewModel();
         model.getAllResults();
+        initListeners();
+    }
+
+    private void initListeners() {
+        binding.btnOpenGraph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigator.navigateViewPagerToGraph(view);
+            }
+        });
     }
 
     public static ProgressFragment newInstance(String text) {
