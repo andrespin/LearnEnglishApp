@@ -35,9 +35,6 @@
                 android:textSize="16dp" />
 
         </com.google.android.material.appbar.MaterialToolbar>
-
-
-
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -69,19 +66,6 @@
         android:layout_marginTop="-50dp"
         android:src="@drawable/image_themes_scale"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgGraph" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Демонстрационная часть"
-        android:textColor="@color/red"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgGraph" />
 

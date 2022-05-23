@@ -30,8 +30,6 @@ public class GraphFragment extends Fragment {
 
     FragmentGraphBinding binding;
 
-    Canvas canvas;
-
     @Inject
     INavigator navigator;
 
@@ -48,10 +46,6 @@ public class GraphFragment extends Fragment {
         return binding.getRoot();
     }
 
-
-    ImageView imageView;
-    Bitmap mBitmap;
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -59,7 +53,7 @@ public class GraphFragment extends Fragment {
         initListeners();
 
         String login = prefs.getLogin();
-// .subscribeOn(AndroidSchedulers.mainThread())
+
         Completable
                 .complete()
                 .subscribeOn(Schedulers.io())

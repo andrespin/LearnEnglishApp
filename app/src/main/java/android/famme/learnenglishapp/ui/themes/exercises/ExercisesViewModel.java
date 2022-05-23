@@ -1,7 +1,6 @@
 package android.famme.learnenglishapp.ui.themes.exercises;
 
 import android.content.Context;
-import android.famme.learnenglishapp.R;
 import android.famme.learnenglishapp.data.storage.preferences.IPreferences;
 import android.famme.learnenglishapp.data.storage.room.ResultDao;
 import android.famme.learnenglishapp.data.storage.room.ResultEntity;
@@ -22,11 +21,9 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.observers.DisposableCompletableObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -142,6 +139,9 @@ public class ExercisesViewModel extends ViewModel {
                         }
 
                         ResultEntity r = results.setTheme(theme, countRightAnswers, resultEntity);
+
+                        System.out.println("r " + r.getLifestyle() );
+
                         try {
                             resultDao.insert(r);
                             Log.d(tag, "data inserted");
